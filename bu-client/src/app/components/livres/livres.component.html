@@ -1,1 +1,74 @@
-<p>livres works!</p>
+        <div class="mat-elevation-z5 col-12" *ngIf="livres">
+
+           <h3><strong>Liste des livres</strong></h3>
+            <table mat-table [dataSource] = "livres">
+
+             <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>Id</th>
+              <td mat-cell *matCellDef="let livre">{{livre.id}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="titre">
+              <th mat-header-cell *matHeaderCellDef>Titre</th>
+              <td mat-cell *matCellDef="let livre">{{livre.titre}}</td>
+            </ng-container>
+            <ng-container matColumnDef="langue_livre">
+              <th mat-header-cell *matHeaderCellDef>Langue</th>
+              <td mat-cell *matCellDef="let livre">{{livre.langue_livre}}</td>
+            </ng-container>
+            <ng-container matColumnDef="isbn">
+              <th mat-header-cell *matHeaderCellDef>ISBN</th>
+              <td mat-cell *matCellDef="let livre">{{livre.isbn}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="nbr_page">
+              <th mat-header-cell *matHeaderCellDef>Nombre page</th>
+              <td mat-cell *matCellDef="let livre">{{livre.nbr_page}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="nbr_examplaire">
+              <th mat-header-cell *matHeaderCellDef>Nbre examplaire</th>
+              <td mat-cell *matCellDef="let livre">{{livre.nbr_examplaire}}</td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="image_livre">
+              <th mat-header-cell *matHeaderCellDef>Image Livre</th>
+              <td mat-cell *matCellDef="let livre">{{livre.image_livre}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="date_achat">
+              <th mat-header-cell *matHeaderCellDef>date_achat</th>
+              <td mat-cell *matCellDef="let livre">{{livre.date_achat}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="date_achat">
+              <th mat-header-cell *matHeaderCellDef>date_achat</th>
+              <td mat-cell *matCellDef="let livre">{{livre.date_achat}}</td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="date_parution">
+              <th mat-header-cell *matHeaderCellDef>date_parution</th>
+              <td mat-cell *matCellDef="let livre">{{livre.date_parution}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="auteur">
+              <th mat-header-cell *matHeaderCellDef>auteur</th>
+              <td mat-cell *matCellDef="let livre">{{livre.auteur}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="emprunter">
+              <th mat-header-cell *matHeaderCellDef>emprunter</th>
+              <td mat-cell *matCellDef="let livre">{{livre.emprunter}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="domaine">
+              <th mat-header-cell *matHeaderCellDef>domaine</th>
+              <td mat-cell *matCellDef="let livre">{{livre.domaine}}</td>
+            </ng-container> -->
+
+            <tr mat-header-row *matHeaderRowDef="displyedLivresColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displyedLivresColumns;" ></tr>
+
+            </table>
+      </div>

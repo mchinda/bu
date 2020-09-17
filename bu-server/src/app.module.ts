@@ -4,20 +4,22 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PassportModule } from '@nestjs/passport';
 import { join } from 'path';
-import {UsersModule} from './modules/';
+import {UsersModule,LivreModule} from './modules/';
+
 @Module({
   imports: [TypeOrmModule.forRoot({
                   database : "bibliotheque",
                   type: "mysql",
-                  host: "127.0.0.1",
+                  host: process.env.TYPEORM_HOST,
                   username: "root",
                   port:3306,
-                  password: "",
+                  password: process.env.TYPEORM_PASSWORD,
                   entities: [join(__dirname, 'modules/**/**.entity{.ts,.js}')],
                   synchronize: true,
                   // dropSchema : true
             }),
             UsersModule,
+            LivreModule
           ],
   controllers: [AppController],
   providers: [AppService],

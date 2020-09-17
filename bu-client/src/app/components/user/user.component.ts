@@ -11,11 +11,12 @@ export class UserComponent implements OnInit {
 
   private users: MatTableDataSource<any[]>;
 
-  constructor(public userService : UserService,) {
+  constructor(public userService : UserService) {
+
   }
 
   ngOnInit(){
-    //this.getUser();
+    // this.getUser();
   }
 
 getUser(){

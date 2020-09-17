@@ -8,6 +8,6 @@ import {LivreEntity} from "./../livre/livre.entity";
 export class LivreService extends BaseService {
   constructor(@InjectRepository(LivreEntity) private readonly livreRepository:Repository<LivreEntity>){
     super(livreRepository);
-}
+  }
 
 }

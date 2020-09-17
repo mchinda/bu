@@ -8,8 +8,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ArticleComponent } from './components/article/article.component';
 import { LivresComponent } from './components/livres/livres.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    MatTableModule,
+    MatTabsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

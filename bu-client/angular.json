@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bibliotheque-client": {
+    "bu-client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bibliotheque-client",
+            "outputPath": "dist/bu-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bibliotheque-client:build"
+            "browserTarget": "bu-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bibliotheque-client:build:production"
+              "browserTarget": "bu-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bibliotheque-client:build"
+            "browserTarget": "bu-client:build"
           }
         },
         "test": {
@@ -110,19 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "bibliotheque-client:serve"
+            "devServerTarget": "bu-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "bibliotheque-client:serve:production"
+              "devServerTarget": "bu-client:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "bibliotheque-client",
+  "defaultProject": "bu-client",
   "cli": {
-    "analytics": "bd21cdf7-d960-4064-8513-da70c507f8a7"
+    "analytics": "bc6b7ddd-9fee-4fa2-8349-6a857ee1a6a8"
   }
 }
