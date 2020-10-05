@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class UserComponent implements OnInit {
 
-  private users: MatTableDataSource<any[]>;
+  private utilisateurs: MatTableDataSource<any[]>;
 
   constructor(public userService : UserService) {
 
@@ -21,8 +21,8 @@ export class UserComponent implements OnInit {
 
 getUser(){
   this.userService.all().subscribe((results:any) => {
-      this.users = results.results;
-      console.log(this.users);
+      this.utilisateurs = results.results;
+      console.log(this.utilisateurs);
     },(error:any) => {
       console.log(error);
     });

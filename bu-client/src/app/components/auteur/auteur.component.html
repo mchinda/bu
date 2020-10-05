@@ -1,0 +1,86 @@
+
+<div class="form">
+<mat-tab-group mat-align-tabs="center" class="tab-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="row justify-content-center">
+          <form class="form-inline">
+           <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <h2>Gestion des auteurs</h2>
+                </mat-card-title>
+              </mat-card-header>
+                  <div class="form-row" style="padding-top:30px;">
+                    <div class="col-md-3 mb-3">
+                      <label class="font-weight-medium mb-2 required" for="validationDefault01">Nom:</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="form-control-container">
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Nom" [(ngModel)]="auteur.nom" name="nom" required>
+                        <span class="form-control-state"></span>
+                      </div>
+                  </div>
+                </div>
+                  <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                      <label class="font-weight-medium mb-2 required">Prenom:</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="form-control-container">
+                        <input type="text" class="form-control" placeholder="Prenom" [(ngModel)]="auteur.prenom" name="prenom" required>
+                        <span class="form-control-state"></span>
+                      </div>
+                  </div>
+                </div>
+                  <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                      <label class="font-weight-medium mb-2 required">Nationalité:</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="form-control-container">
+                        <input type="text" class="form-control" placeholder="Nationalité" [(ngModel)]="auteur.natinalite" name="nationalite" required>
+                        <span class="form-control-state"></span>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label class="font-weight-medium mb-2 required">Date de naissance:</label>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="form-control-container">
+                      <input type="text" class="form-control" placeholder="Date de naissance" [(ngModel)]="auteur.dateNaissance" name="dateNaissance" required>
+
+                      <span class="form-control-state"></span>
+                    </div>
+                </div>
+                </div>
+
+                  <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                      <label class="font-weight-medium mb-2 required">Téléphone:</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="form-control-container">
+                        <input type="text" class="form-control" placeholder="telephone" [(ngModel)]="user.telephone" name="telephone" required>
+                        <span class="form-control-state"></span>
+                      </div>
+                  </div>
+                </div>
+
+
+                <!-- <ul *ngIf="listeMsgError && listeMsgError.length>0">
+                  <li *ngFor="let error of listeMsgError" style=" color: red;">{{error}}</li>
+                </ul> -->
+                <div class="col">
+                  <button class="btn btn-primary" type="submit"(click)="addAuteur()">Valider</button>
+                </div>
+              </mat-card>
+            </form>
+            </div>
+            </div>
+            </div>
+
+</div>

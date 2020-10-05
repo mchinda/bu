@@ -1,1 +1,65 @@
-<h1>Bienvenue dans la gestion des utilisateurs</h1>
+
+<div class="mat-elevation-z5 col-12" *ngIf="utilisateurs!=null">
+    <h3><strong>Gestion des utilisateurs</strong></h3>
+      <table id="tableId" mat-table [dataSource]="utilisateurs">
+
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let utilisateur">{{utilisateur.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Nom">
+          <th mat-header-cell *matHeaderCellDef>Nom</th>
+          <td mat-cell *matCellDef="let utilisateur">{{utilisateur.nom}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Prenom">
+          <th mat-header-cell *matHeaderCellDef>Prenom</th>
+          <td mat-cell *matCellDef="let utilisateur">{{utilisateur.prenom}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Departement">
+          <th mat-header-cell *matHeaderCellDef>Departement</th>
+          <td mat-cell *matCellDef="let utilisateur">{{utilisateur.departement}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Login">
+          <th mat-header-cell *matHeaderCellDef>Login</th>
+          <td mat-cell *matCellDef="let utilisateur">{{utilisateur.login}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="IsActive">
+         <th mat-header-cell *matHeaderCellDef>IsActive</th>
+         <td mat-cell *matCellDef="let utilisateur">{{utilisateur.isActive}}</td>
+       </ng-container>
+
+        <ng-container matColumnDef="Etat">
+          <th mat-header-cell *matHeaderCellDef>Etat</th>
+          <td mat-cell *matCellDef="let utilisateur">{{utilisateur.etat}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Role">
+          <th mat-header-cell *matHeaderCellDef>Role</th>
+          <td  mat-cell *matCellDef="let utilisateur">{{utilisateur.role != null ? utilisateur.role.name : 'undefined'}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let utilisateur">
+            <button mat-flat-button matTooltip="editer un utilisateur" (click)="openModalManagerUser(utilisateur)">
+                <i class="material-icons">{{btnValidated}}</i>
+                Editer
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displyedUsersColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displyedUsersColumns;" ></tr>
+
+      </table>
+      <div class="row">
+          <div class="col-sm-12">
+            <mat-paginator [length] = "length" [pageSize]="pageSize" [pageIndex] = "pageIndex" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange($event)"></mat-paginator>
+          </div>
+      </div>
+</div>

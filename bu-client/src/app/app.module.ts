@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
-import { ArticleComponent } from './components/article/article.component';
+import { AuteurComponent } from './components/auteur/auteur.component';
 import { LivresComponent } from './components/livres/livres.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     UserComponent,
     LoginComponent,
-    ArticleComponent,
+    AuteurComponent,
     LivresComponent
   ],
   imports: [
