@@ -9,7 +9,7 @@ import * as express from "express";
 async function bootstrap() {
 const app = await NestFactory.create(AppModule);
 // let allowedOrigins = process.env.ALLOWED_ORIGIN;
-let allowedOrigins = "http://localhost:4200,http://localhost:7000,http://localhost:3000,http://localhost";
+let allowedOrigins = "http://localhost:4200,chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop,http://localhost:7000,http://localhost:3000,http://localhost";
   app.use(cors({
               origin: (origin, callback) => {
                   if(!origin) return callback(null, true);

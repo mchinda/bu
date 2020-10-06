@@ -1,4 +1,5 @@
 import { Component, OnInit,Output, Input, OnChanges,SimpleChanges, ViewChild, EventEmitter,Inject, Optional } from '@angular/core';
+import {AuteurService} from './../../services/auteur.service';
 
 @Component({
   selector: 'app-auteur',
@@ -10,18 +11,29 @@ export class AuteurComponent implements OnInit {
   public auteur :any = {
           nom:"",
           prenom:"",
-          telephone:"",
-          dateNaissance:"",
           nationalite:"",
-          sexe:""
+          dateNaissance:"",
+          telephone:""
         };
-  constructor() { }
+
+  constructor(private auteurService:AuteurService) {
+
+   }
 
   ngOnInit(): void {
+
+  }
+
+  getAllAuteur(){
+    this.auteurService.all().subscribe((result:any) =>{
+      console.log(result);
+    });
   }
 
   addAuteur(){
-
+    console.log(this.auteur);
+    this.auteurService.add(this.auteur).subscribe((result:any) =>{
+      console.log(result);
+    });
   }
-
 }

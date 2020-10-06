@@ -7,5 +7,8 @@ import {AuteurEntity} from "./../auteur/auteur.entity";
 @Injectable()
 export class AuteurService extends BaseService {
 
+constructor(@InjectRepository(AuteurEntity) private readonly auteurRepository:Repository<AuteurEntity>){
+  super(auteurRepository);
 
+}
 }

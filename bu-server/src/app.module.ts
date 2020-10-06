@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PassportModule } from '@nestjs/passport';
 import { join } from 'path';
-import {UsersModule,LivreModule} from './modules/';
+import {UsersModule,LivreModule,AuteurModule} from './modules/';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -15,11 +15,12 @@ import {UsersModule,LivreModule} from './modules/';
                   port:3306,
                   password: process.env.TYPEORM_PASSWORD,
                   entities: [join(__dirname, 'modules/**/**.entity{.ts,.js}')],
-                  synchronize: true,
+                  // synchronize: true,
                   // dropSchema : true
             }),
             UsersModule,
-            LivreModule
+            LivreModule,
+            AuteurModule
           ],
   controllers: [AppController],
   providers: [AppService],

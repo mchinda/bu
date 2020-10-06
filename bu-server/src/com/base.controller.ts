@@ -35,7 +35,7 @@ export abstract class BaseController{
     return this.service.all();
   }
 
-  @Post()
+  @Post("add")
   //@UseGuards(new JwtAuthGuard("jwt"))
   async create(@Body() body: any): Promise<BaseEntity> {
     return await this.service.create(body);

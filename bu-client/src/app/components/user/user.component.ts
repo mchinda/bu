@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class UserComponent implements OnInit {
 
-  private utilisateurs: MatTableDataSource<any[]>;
+  public utilisateurs: MatTableDataSource<any[]>;
 
   constructor(public userService : UserService) {
 
