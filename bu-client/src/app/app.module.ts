@@ -10,6 +10,7 @@ import { LivresComponent } from './components/livres/livres.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
@@ -28,7 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,MatCardModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
