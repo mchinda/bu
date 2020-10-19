@@ -1,83 +1,133 @@
-<div class="form">
-    <!-- <div class="card">
-      <div class="card-header">
-        <div class="row justify-content-center"> -->
-          <form class="form-inline">
-           <mat-card>
-              <mat-card-header>
-                <mat-card-title>
-                  <h2>Gestion des auteurs</h2>
-                </mat-card-title>
-              </mat-card-header>
-                  <div class="form-row" style="padding-top:30px;">
-                    <div class="col-md-3 mb-3">
-                      <label class="font-weight-medium mb-2 required">Nom:</label>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <div class="form-control-container">
-                        <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="auteur.nom" name="nom" required>
-                        <span class="form-control-state"></span>
-                      </div>
-                  </div>
-                </div>
-                  <div class="form-row">
-                    <div class="col-md-3 mb-3">
-                      <label class="font-weight-medium mb-2 required">Prenom:</label>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <div class="form-control-container">
-                        <input type="text" class="form-control" placeholder="Prenom" [(ngModel)]="auteur.prenom" name="prenom" required>
-                        <span class="form-control-state"></span>
-                      </div>
-                  </div>
-                </div>
-                  <div class="form-row">
-                    <div class="col-md-3 mb-3">
-                      <label class="font-weight-medium mb-2 required">Nationalité:</label>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <div class="form-control-container">
-                        <input type="text" class="form-control" placeholder="Nationalité" [(ngModel)]="auteur.natinalite" name="nationalite" required>
-                        <span class="form-control-state"></span>
-                      </div>
-                  </div>
-                </div>
+<div class="container">
+  <form id="contact" action="" method="post">
+    <h3>Gestion des auteurs</h3>
+    <h4>Ajout où modification d'un auteur!</h4>
+    <fieldset>
+      <input name="nom" [(ngModel)]="model_auteur.nom" placeholder="Nom auteur" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input name="prenom" [(ngModel)]="model_auteur.prenom" placeholder="Prenom auteur" type="text" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input name="email" [(ngModel)]="model_auteur.email" placeholder="Email auteur" type="email" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input name="date_naissance" [(ngModel)]="model_auteur.date_naissance" placeholder="jj/dd/yyyy" type="date" tabindex="4" required>
+    </fieldset>
 
-                <div class="form-row">
-                  <div class="col-md-3 mb-3">
-                    <label class="font-weight-medium mb-2 required">Date de naissance:</label>
-                  </div>
-                  <div class="col-md-3 mb-3">
-                    <div class="form-control-container">
-                      <input type="text" class="form-control" placeholder="Date de naissance" [(ngModel)]="auteur.dateNaissance" name="dateNaissance" required>
+    <fieldset>
+      <select type="select" name="sexe" [(ngModel)]="model_auteur.sexe">
+        <option value="0">Choisissez le sexe</option>
+        <option value="1">Masculain</option>
+        <option value="2">Feminin</option>
+      </select>
+    </fieldset>
 
-                      <span class="form-control-state"></span>
-                    </div>
-                </div>
-                </div>
+    <fieldset>
+      <input name="nationalite" [(ngModel)]="model_auteur.nationalite" placeholder="Nationalité" type="text" tabindex="5" required>
+    </fieldset>
+    <fieldset>
+      <input name="site" [(ngModel)]="model_auteur.site" placeholder="Site interne de l'auteur" type="url" tabindex="6" required>
+    </fieldset>
+    <fieldset>
+      <input name="telephone" [(ngModel)]="model_auteur.telephone" placeholder="Téléphone" type="tel" tabindex="7" required>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Valider</button>
+    </fieldset>
+  </form>
+  </div>
 
-                  <div class="form-row">
-                    <div class="col-md-3 mb-3">
-                      <label class="font-weight-medium mb-2 required">Téléphone:</label>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <div class="form-control-container">
-                        <input type="text" class="form-control" placeholder="telephone" [(ngModel)]="auteur.telephone" name="telephone" required>
-                        <span class="form-control-state"></span>
-                      </div>
-                  </div>
-                </div>
+  <div id="matElevation" class="mat-elevation-z8 col-11" >
+      <h1><strong>Liste des auteurs</strong></h1>
+      <table mat-table [dataSource]="auteurs">
 
-                <div class="col">
-                  <button class="btn btn-primary" type="submit"(click)="addAuteur()">Valider</button>
-                </div>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>id</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.id}}</td>
+      </ng-container>
 
-              </mat-card>
-            </form>
-              <div id="droite">
-                fffff
-              </div>
-            </div>
-            <!-- </div>
-            </div>
-</div> -->
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef>created</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.created}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="updated">
+        <th mat-header-cell *matHeaderCellDef>updated</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.updated}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef>nom</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.nom}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="prenom">
+        <th mat-header-cell *matHeaderCellDef>prenom</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.prenom}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date_naissance">
+        <th mat-header-cell *matHeaderCellDef>date_naissance</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.date_naissance}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>email</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.email}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="site">
+        <th mat-header-cell *matHeaderCellDef>site</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.site}}</td>
+      </ng-container>
+
+        <ng-container matColumnDef="sexe">
+          <th mat-header-cell *matHeaderCellDef>sexe</th>
+          <td mat-cell *matCellDef="let auteur">{{auteur.sexe}}</td>
+        </ng-container>
+
+      <ng-container matColumnDef="nationalite">
+        <th mat-header-cell *matHeaderCellDef>nationalite</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.nationalite}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="telephone">
+        <th mat-header-cell *matHeaderCellDef>telephone</th>
+        <td mat-cell *matCellDef="let auteur">{{auteur.telephone}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>edit</th>
+        <td mat-cell *matCellDef="let auteur">
+          <span class="material-icons">
+          edit
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>delete</th>
+        <td mat-cell *matCellDef="let auteur">
+          <span class="material-icons">
+          delete
+          </span>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displyedAuteurColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displyedAuteurColumns;" ></tr>
+
+  </table>
+  <div class="row">
+    <div class="col-sm-12">
+        <mat-paginator [length] = "length" [pageSize]="pageSize" [pageIndex] = "pageIndex" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange($event)"></mat-paginator>
+    </div>
+  </div>
+  </div>
+
+    <div class="col" id="btn-next">
+      <button name="submit" type="button"  id="contact-submit" data-submit="...Sending">Suivant>></button>
+    </div>

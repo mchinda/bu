@@ -1,3 +1,126 @@
-#droite {
-   overflow:auto;
+
+table {
+  overflow: auto;
+  width: 100%;
+}
+ .table-row:focus {
+   background:#87CEFA;
+   outline-color: none;
+}
+
+tr.mat-footer-row, tr.mat-row {
+    height: 30px;
+}
+
+.toolbar-icon-disabled {
+  pointer-events: none;
+}
+.linkDisabled {
+  cursor: not-allowed;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.table-row:focus mat-cell {
+  color:white;
+}
+
+#matElevation {
+  margin-top:0%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+}
+
+body {
+	font-family:"Open Sans", Helvetica, Arial, sans-serif;
+	font-weight:300;
+	font-size: 12px;
+	line-height:30px;
+	color:#777;
+	background:#0CF;
+}
+
+.container {
+	max-width:70%;
+	width:50%;
+	margin:0 auto;
+	position:relative;
+}
+
+#contact input[type="text"],
+ #contact input[type="email"],
+ #contact input[type="tel"],
+ #contact input[type="url"],
+ #contact textarea, #contact button[type="submit"] {
+   font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+ }
+
+#contact {
+  text-align: center;
+	padding:2%;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 15px 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 5px;
+  padding: 0;
+}
+
+#contact input[type="text"],
+#contact select[type="select"],#contact input[type="email"],
+ #contact input[type="tel"], #contact input[type="url"],
+ #contact input[type="date"], #contact textarea {
+	width:50%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="date"] {
+  width:50%;
+  text-align: left;
+ }
+
+ #contact select[type="select"] {
+   width:50%;
+   text-align: left;
+  }
+
+ #btn-next {
+  cursor:pointer;
+	border:none;
+	color:#FFF;
+  margin-top:0%;
+  margin-right: 15px;
+	padding:10px;
+	font-size:15px;
+  text-align: center;
+}
+
+#contact button[type="submit"]{
+	cursor:pointer ;
+	width:20%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	padding:10px;
+	font-size:15px;
+  text-align: center;
 }
