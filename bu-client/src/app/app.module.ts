@@ -16,6 +16,8 @@ import {MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { MatMenuModule} from '@angular/material/menu';
 import { MenuComponent } from './components/menu/menu.component';
+import { EmprunteurComponent } from './components/emprunteur/emprunteur.component';
+import { ListeAdherentComponent } from './components/liste-adherent/liste-adherent.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MenuComponent } from './components/menu/menu.component';
     LoginComponent,
     AuteurComponent,
     LivresComponent,
-    MenuComponent
+    MenuComponent,
+    EmprunteurComponent,
+    ListeAdherentComponent
   ],
   imports: [
     BrowserModule,

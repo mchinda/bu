@@ -10,9 +10,20 @@ import {MatTableModule} from '@angular/material/table';
 })
 export class LivresComponent implements OnInit {
 
-  // public displyedLivresColumns : string [] = ['id','titre','langue_livre','isbn','nbr_page','nbr_examplaire','image_livre','date_achat','date_parution','auteur','emprunter','domaine'];
-  public displyedLivresColumns : string [] = ['id','titre','langue_livre','isbn','nbr_page','nbr_examplaire'];
+  public displyedLivresColumns : string [] = ['id','created','updated','titre','langue_livre','isbn','nbr_page','nbr_examplaire','date_achat','date_parution','auteur','emprunter','edit','delete'];
   public livres:any;
+  public model_livres:any = {
+    domaine:"",
+    date_parution:"",
+    isbn:"",
+    nbr_examplaire:"",
+    auteur:"",
+    date_achat:"",
+    nbr_page:"",
+    langue:"",
+    titre:"",
+    image:""
+  }
 
   constructor(private livresService : LivreService) {
 

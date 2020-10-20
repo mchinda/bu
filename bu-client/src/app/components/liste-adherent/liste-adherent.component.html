@@ -1,0 +1,89 @@
+<div id="matElevation" class="mat-elevation-z8 col-11" >
+    <h1><strong>Liste des adherent</strong></h1>
+    <table mat-table [dataSource]="adherents">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="created">
+      <th mat-header-cell *matHeaderCellDef>created</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.created}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="updated">
+      <th mat-header-cell *matHeaderCellDef>updated</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.updated}}</td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef>nom</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.nom}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="prenom">
+      <th mat-header-cell *matHeaderCellDef>prenom</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.prenom}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="date_naissance">
+      <th mat-header-cell *matHeaderCellDef>date_naissance</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.date_naissance}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>email</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="site">
+      <th mat-header-cell *matHeaderCellDef>site</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.site}}</td>
+    </ng-container>
+
+      <ng-container matColumnDef="sexe">
+        <th mat-header-cell *matHeaderCellDef>sexe</th>
+        <td mat-cell *matCellDef="let adherent">{{adherent.sexe}}</td>
+      </ng-container>
+
+    <ng-container matColumnDef="nationalite">
+      <th mat-header-cell *matHeaderCellDef>nationalite</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.nationalite}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="telephone">
+      <th mat-header-cell *matHeaderCellDef>telephone</th>
+      <td mat-cell *matCellDef="let adherent">{{adherent.telephone}}</td>
+    </ng-container> -->
+
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>edit</th>
+      <td mat-cell *matCellDef="let adherent">
+        <span class="material-icons">
+        edit
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>delete</th>
+      <td mat-cell *matCellDef="let adherent">
+        <span class="material-icons">
+        delete
+        </span>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displyedadherentColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displyedadherentColumns;" ></tr>
+
+</table>
+<div class="row">
+  <div class="col-sm-12">
+      <mat-paginator [length] = "length" [pageSize]="pageSize" [pageIndex] = "pageIndex" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange($event)"></mat-paginator>
+  </div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container">
+  <form id="auteurs" action="" method="post">
+    <h3>Gestion des adhérant</h3>
+    <h4>Ajout où modification d'un adhérent!</h4>
+    <fieldset>
+      <input name="codeAdherent" [(ngModel)]="model_adherent.code" placeholder="Numéro CIN" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input name="nom" [(ngModel)]="model_adherent.nom" placeholder="Nom adherent" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input name="prenom" [(ngModel)]="model_adherent.prenom" placeholder="Prenom adherent" type="text" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input name="date_naissance" [(ngModel)]="model_adherent.date_naissance" placeholder="jj/dd/yyyy" type="date" tabindex="4" required>
+    </fieldset>
+
+    <fieldset>
+      <input name="profession" [(ngModel)]="model_adherent.profession" placeholder="profession" type="text" tabindex="3" required>
+    </fieldset>
+
+    <fieldset>
+      <select type="select" name="sexe" [(ngModel)]="model_adherent.sexe">
+        <option value="0">Choisissez le sexe</option>
+        <option value="1">Masculain</option>
+        <option value="2">Feminin</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <input name="adresse" [(ngModel)]="model_adherent.adresse" placeholder="Adresse" type="text" tabindex="5" required>
+    </fieldset>
+    <fieldset>
+      <input name="telephone" [(ngModel)]="model_adherent.telephone" placeholder="Téléphone" type="tel" tabindex="7" required>
+    </fieldset>
+
+    <fieldset>
+      <input name="email" [(ngModel)]="model_adherent.email" placeholder="Email adherent" type="email" tabindex="3" required>
+    </fieldset>
+
+    <fieldset>
+      <input name="date_adhesion" [(ngModel)]="model_adherent.date_adhesion" placeholder="date_adhesion" type="date" tabindex="6" required>
+    </fieldset>
+
+    <fieldset>
+      <input name="codeemprunt" [(ngModel)]="model_adherent.code_emprunt" placeholder="code emprunt" type="text" tabindex="6" required>
+    </fieldset>
+
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Valider</button>
+    </fieldset>
+  </form>
+  </div>

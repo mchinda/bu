@@ -4,11 +4,16 @@
     <li id="id_home"><a href="">Acueil</a></li>
     <li><a href="#">Bibliotheque</a>
       <ul id="submenu">
-        <li><a href="livre">Auteur</a></li>
+        <li><a href="auteur">Auteur</a></li>
         <li><a href="domaine">Domaine</a></li>
-        <li><a href="livres">Livres</a></li>
+        <li><a href="livres" onclick="openLivre(href)">Livres</a></li>
         <li><a href="emprunts">Emprunts</a></li>
-        <li><a href="emprunteurs">Emprunteurs</a></li>
+        <li>
+          <ul><a href="emprunts">Adherent</a>
+            <li><a href="emprunteurs">Ajout</a></li>
+            <li><a href="emprunteurs">Liste</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="">News</a></li>

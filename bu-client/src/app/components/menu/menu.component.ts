@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route : ActivatedRoute,private router:Router) {
 
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {
+
+  }
+
+openLivre(href:any){
+  console.log(href);
+  this.router.navigate(['/livre']);
+
+}
 }
