@@ -34,18 +34,16 @@ public model_auteur :any = {
 
    }
 
-
    setDataSourceAttributes() {
      if (this.paginator) {
        this.auteurs.paginator = this.paginator;
      }
    }
 
-onPageChange(event:any){
-    this.pageIndex = event.pageIndex;
-    this.pageSize = event.pageSize;
-  }
-
+  onPageChange(event:any){
+      this.pageIndex = event.pageIndex;
+      this.pageSize = event.pageSize;
+    }
 
   ngOnInit() {
     // this.auteurs.paginator = this.paginator;
@@ -61,8 +59,32 @@ onPageChange(event:any){
   }
 
   addAuteur(){
+    console.log(this.model_auteur);
     this.auteurService.add(this.model_auteur).subscribe((result:any) =>{
-      console.log(result);
+      this.getAllAuteur();
+    });
+  }
+
+  edit(auteur:any){
+    console.log(auteur);
+    this.model_auteur.nom = auteur.nom;
+    this.model_auteur.prenom = auteur.prenom;
+    this.model_auteur.nationalite = auteur.nationalite;
+    this.model_auteur.date_naissance = auteur.date_naissance;
+    this.model_auteur.site = auteur.site;
+    this.model_auteur.telephone = auteur.telephone;
+    this.model_auteur.email = auteur.email;
+    this.model_auteur.sexe = auteur.sexe;
+  }
+
+/**
+**@Method deleteAutor()
+*permet de supprimer un auteur
+**/
+  deleteAutor(auteur:any){
+    this.auteurService.deleteAutor(auteur).subscribe((res:any) => {
+      console.log(res);
+      this.getAllAuteur();
     });
   }
 }

@@ -21,4 +21,11 @@ export class AuteurController extends BaseController {
   constructor(private readonly auteurService: AuteurService) {
     super(auteurService);
   }
+
+  @Post('delete')
+  async deleteAutor(@Body() body:any){
+    console.log("delete...");
+    console.log(body);
+    return await this.auteurService.deleteAutor(body);
+   }
 }

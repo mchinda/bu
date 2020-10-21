@@ -1,7 +1,7 @@
 <div class="container">
   <form id="auteurs" action="" method="post">
     <h3>Gestion des adhérant</h3>
-    <h4>Ajout où modification d'un adhérent!</h4>
+    <h4>Ajout où modification d'un adhérents!</h4>
     <fieldset>
       <input name="codeAdherent" [(ngModel)]="model_adherent.code" placeholder="Numéro CIN" type="text" tabindex="1" required autofocus>
     </fieldset>
@@ -16,7 +16,7 @@
     </fieldset>
 
     <fieldset>
-      <input name="profession" [(ngModel)]="model_adherent.profession" placeholder="profession" type="text" tabindex="3" required>
+      <input name="profession" [(ngModel)]="model_adherent.profession" placeholder="Profession" type="text" tabindex="3" required>
     </fieldset>
 
     <fieldset>
@@ -37,13 +37,9 @@
       <input name="email" [(ngModel)]="model_adherent.email" placeholder="Email adherent" type="email" tabindex="3" required>
     </fieldset>
 
-    <fieldset>
-      <input name="date_adhesion" [(ngModel)]="model_adherent.date_adhesion" placeholder="date_adhesion" type="date" tabindex="6" required>
-    </fieldset>
-
-    <fieldset>
-      <input name="codeemprunt" [(ngModel)]="model_adherent.code_emprunt" placeholder="code emprunt" type="text" tabindex="6" required>
-    </fieldset>
+    <!-- <fieldset>
+      <input name="codeemprunt" [(ngModel)]="model_adherent.code_emprunt" placeholder="Code emprunt" type="text" tabindex="6" required>
+    </fieldset> -->
 
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Valider</button>

@@ -23,8 +23,8 @@ export class UserEntity extends BaseEntity{
       @Column()
       password: string;
 
-      @Column()
-      isActive: string;
+      @Column({type: "timestamp", comment:'Date de naissance'})
+      date_naissance :Date;
 
       //@Column({default: 'Non valider'})
       @Column()

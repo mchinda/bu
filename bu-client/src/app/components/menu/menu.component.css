@@ -21,6 +21,7 @@
 	width:auto;
   margin-top:1%;
 }
+
 .dropdownmenu a {
 	background: #30A6E6;
 	color: #FFFFFF;
@@ -46,9 +47,9 @@
 	visibility: hidden;
 	z-index: 1;
 }
-li:hover ul#submenu {
+ li:hover ul#submenu {
 	opacity: 1;
-	top: 40px;	/* adjust this as per top nav padding top & bottom comes */
+	top: 40px;
 	visibility: visible;
 }
 #submenu li {

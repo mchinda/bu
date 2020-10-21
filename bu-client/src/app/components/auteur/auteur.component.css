@@ -98,12 +98,12 @@ fieldset {
 }
 
 #auteurs input[type="date"] {
-  width:50%;
+  width:25%;
   text-align: left;
  }
 
  #auteurs select[type="select"] {
-   width:50%;
+   width:25%;
    text-align: left;
   }
 

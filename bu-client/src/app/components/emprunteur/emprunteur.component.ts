@@ -15,9 +15,8 @@ public model_adherent:any = {
   sexe:"",
   adresse:"",
   telephone:"",
-  email:"",
-  date_adhesion:"",
-  codeemprunt:""
+  email:""
+  // codeemprunt:""
 }
   constructor() { }
 

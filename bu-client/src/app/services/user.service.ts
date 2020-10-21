@@ -10,5 +10,5 @@ export class UserService extends BaseService{
   constructor(private _http:HttpClient) {
           super(_http,'user');
    }
-   
+
 }

@@ -11,4 +11,14 @@ constructor(@InjectRepository(AuteurEntity) private readonly auteurRepository:Re
   super(auteurRepository);
 
 }
+
+async deleteAutor(body:any){
+console.log(body);
+  await this.auteurRepository
+    .createQueryBuilder()
+    .delete()
+    .from(AuteurEntity)
+    .where("id = :id", { id: body.id })
+    .execute();
+}
 }
