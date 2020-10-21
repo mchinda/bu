@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EmprunteurService} from './../../services/emprunteur.service';
 
 @Component({
   selector: 'app-emprunteur',
@@ -15,12 +16,20 @@ public model_adherent:any = {
   sexe:"",
   adresse:"",
   telephone:"",
-  email:""
+  email:"",
+  direction:""
   // codeemprunt:""
 }
-  constructor() { }
+  constructor(private emprunteurService: EmprunteurService) { }
 
   ngOnInit(): void {
+
+  }
+
+  addAdherent(){
+    this.emprunteurService.add(this.model_adherent).subscribe((result:any) =>{
+      console.log(result);
+    });
   }
 
 }

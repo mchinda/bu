@@ -6,6 +6,9 @@ import {EmprunterEntity} from './../emprunter/emprunter.entity';
 export class EmprunteurEntity extends BaseEntity {
 
   @Column()
+  code: string;
+
+  @Column()
   nom: string;
 
   @Column()
@@ -13,6 +16,21 @@ export class EmprunteurEntity extends BaseEntity {
 
   @Column({type: "timestamp", comment:'Date de naissance'})
   date_naissance :Date;
+
+  @Column()
+  profession: string;
+
+  @Column()
+  sexe: string;
+
+  @Column()
+  adresse: string;
+
+  @Column()
+  telephone: string;
+
+  @Column()
+  email: string;
 
   @Column()
   direction: string;
