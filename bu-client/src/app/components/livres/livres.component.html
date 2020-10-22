@@ -5,9 +5,9 @@
   <fieldset>
       <select type="select" name="bibliotheque"  data-placement="top" title="Ajout d'une bibliotheque">
         <option value="0">Choisissez votre bibliotheque</option>
-        <option value="1">Mbangani bangweni</option>
-        <option value="2">bibavou</option>
-        <option value="3">singani</option>
+        <option value="0">Choisissez un village</option>
+        <option *ngFor="let v of villages" value="{{v.nom_village}}">{{v.nom_village}}</option>
+
       </select>
       <button id="add_domaine" type="button" (click)="addBU()" data-placement="top" title="Ajout d'une bibliotheque" >add</button>
     </fieldset>

@@ -6,6 +6,7 @@ import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {DomaineComponent} from './../domaine/domaine.component';
 import {BibliothequeComponent} from './../bibliotheque/bibliotheque.component';
 import {AuteurComponent} from './../auteur/auteur.component';
+import {VillageService} from './../../services/village.service';
 
 @Component({
   selector: 'app-livres',
@@ -16,6 +17,7 @@ export class LivresComponent implements OnInit {
 
   public displyedLivresColumns : string [] = ['id','created','updated','titre','langue_livre','isbn','nbr_page','nbr_examplaire','date_achat','date_parution','auteur','emprunter','edit','delete'];
   public livres:any;
+  public villages:any;
   public model_livres:any = {
     domaine:"",
     date_parution:"",
@@ -30,12 +32,22 @@ export class LivresComponent implements OnInit {
   }
 
   constructor(private livresService : LivreService,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,private villageService: VillageService) {
 
   }
 
   ngOnInit() {
     this.findAll();
+    this.getVillage();
+ }
+
+ getVillage(){
+   this.villageService.all().subscribe((result:any) => {
+     this.villages = result;
+     console.log(result,this.villages);
+   },(err:any) =>{
+     console.log(err);
+   });
  }
 
   findAll(){
