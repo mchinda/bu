@@ -4,11 +4,8 @@
     <li id="id_home"><a href="">Acueil</a></li>
     <li><a href="#">Bibliotheque</a>
       <ul id="submenu">
-        <li><a href="auteur">Auteur</a></li>
-        <li><a href="domaine">Domaine</a></li>
-        <li><a href="livres" onclick="openLivre(href)">Livres</a></li>
-        <li><a href="emprunts">Emprunts</a></li>
-        <li><a href="#">Adherent</a>
+        <li><a [routerLink]="['emprunts']">Emprunts</a></li>
+        <li><a [routerLink]="['adherent']">Adherent</a>
           <ul>
             <li><a href="#">Ajout</a></li>
             <li><a href="#">Liste</a></li>

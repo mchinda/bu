@@ -18,6 +18,10 @@ import { MatMenuModule} from '@angular/material/menu';
 import { MenuComponent } from './components/menu/menu.component';
 import { EmprunteurComponent } from './components/emprunteur/emprunteur.component';
 import { ListeAdherentComponent } from './components/liste-adherent/liste-adherent.component';
+import { DomaineComponent } from './components/domaine/domaine.component';
+import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HomeComponent } from './components/home/home.component';
+import { BibliothequeComponent } from './components/bibliotheque/bibliotheque.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +32,12 @@ import { ListeAdherentComponent } from './components/liste-adherent/liste-adhere
     LivresComponent,
     MenuComponent,
     EmprunteurComponent,
-    ListeAdherentComponent
+    ListeAdherentComponent,
+    DomaineComponent,
+    HomeComponent,
+    BibliothequeComponent,
   ],
+  entryComponents: [DomaineComponent,BibliothequeComponent,AuteurComponent],
   imports: [
     BrowserModule,
     MatMenuModule,
@@ -41,11 +49,11 @@ import { ListeAdherentComponent } from './components/liste-adherent/liste-adhere
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatPaginatorModule,
+    MatPaginatorModule, MatDialogModule,
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [],
+  providers: [{provide:MatDialogRef, useValue: 'fr'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

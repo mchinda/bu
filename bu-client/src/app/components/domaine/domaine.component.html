@@ -1,0 +1,12 @@
+<div class="container">
+  <form id="domaine" action="" method="post">
+    <h1><strong>Ajout d'un domaine!</strong></h1>
+    <fieldset>
+      <input name="nom" [(ngModel)]="model_domaine.nom_domaine" placeholder="Nom domaine" type="text" tabindex="-1" required autofocus>
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
+  <button type="button" class="btn btn-primary" (click)="confirmer()">Valider</button>
+</div>

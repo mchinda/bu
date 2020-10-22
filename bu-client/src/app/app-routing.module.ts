@@ -5,14 +5,19 @@ import {LivresComponent} from './components/livres/livres.component';
 import {AuteurComponent} from './components/auteur/auteur.component';
 import {LoginComponent} from './components/login/login.component';
 import {EmprunteurComponent} from './components/emprunteur/emprunteur.component';
+import {HomeComponent} from './components/home/home.component';
 
 
 const routes: Routes = [
-  {path: 'livre', component: LivresComponent},
-  {path: 'auteur', component: AuteurComponent},
-  {path: 'user', component: UserComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'emprunteur', component: EmprunteurComponent}
+  {path: '', component: LoginComponent},
+  {path: 'home', component: HomeComponent,children:[
+    {path: '', component: LivresComponent},
+    {path: 'auteur', component: AuteurComponent},
+    {path: 'user', component: UserComponent},
+    {path: 'adherent', component: EmprunteurComponent},
+
+  ]}
+
 
 ];
 

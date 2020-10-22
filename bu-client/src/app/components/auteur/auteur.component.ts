@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatMenuModule} from '@angular/material/menu';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-auteur',
@@ -11,7 +12,7 @@ import { MatMenuModule} from '@angular/material/menu';
   styleUrls: ['./auteur.component.css']
 })
 export class AuteurComponent implements OnInit {
-public displyedAuteurColumns : string [] = ['id','created','updated','nom','prenom','date_naissance', 'email', 'sexe','site','nationalite','telephone','edit','delete'];
+public displyedAuteurColumns : string [] = ['id','nom','prenom','date_naissance', 'email','site','nationalite','edit','delete'];
 public auteurs:any;
 
 @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -25,12 +26,14 @@ public model_auteur :any = {
     nationalite:"",
     date_naissance:"",
     site:"",
-    telephone:"",
-    email:"",
-    sexe:""
+    email:""
   };
 
-  constructor(private auteurService:AuteurService) {
+  constructor(
+    private auteurService:AuteurService,
+    public dialog: MatDialog,
+    public dialogRef: MatDialogRef<AuteurComponent>,
+      @Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
 
    }
 
@@ -43,6 +46,11 @@ public model_auteur :any = {
   onPageChange(event:any){
       this.pageIndex = event.pageIndex;
       this.pageSize = event.pageSize;
+    }
+
+    fermer(){
+      this.dialogRef.close();
+
     }
 
   ngOnInit() {

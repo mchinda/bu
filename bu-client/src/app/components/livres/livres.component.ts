@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {LivreService} from './../../services/livre.service';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {DomaineComponent} from './../domaine/domaine.component';
+import {BibliothequeComponent} from './../bibliotheque/bibliotheque.component';
+import {AuteurComponent} from './../auteur/auteur.component';
 
 @Component({
   selector: 'app-livres',
@@ -25,14 +29,77 @@ export class LivresComponent implements OnInit {
     image:""
   }
 
-  constructor(private livresService : LivreService) {
+  constructor(private livresService : LivreService,
+    private dialog: MatDialog) {
 
   }
 
   ngOnInit() {
+    this.findAll();
+ }
+
+  findAll(){
     this.livresService.all().subscribe((result:any) => {
       console.log(result);
       this.livres = result;
+    });
+  }
+
+
+  addAuteur(){
+    const dialogRef = this.dialog.open(AuteurComponent,{
+    width : '70%',
+    // height :'30%',
+    data : {
+      domaine:""
+    }
+    });
+
+  dialogRef.afterClosed().subscribe(result => {
+       if(result){
+         // this.getPoste();
+       }
+   });
+
+  }
+
+  addBU(){
+    console.log('bu');
+    const dialogRef = this.dialog.open(BibliothequeComponent,{
+    width : '20%',
+    // height :'30%',
+    data : {
+      domaine:""
+    }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+       if(result){
+         // this.getPoste();
+       }
+   });
+  }
+
+  addDomaine(){
+    const dialogRef = this.dialog.open(DomaineComponent,{
+    width : '20%',
+    // height :'30%',
+    data : {
+      domaine:""
+    }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+       if(result){
+         // this.getPoste();
+       }
+   });
+  }
+
+  addLivre(){
+    this.livresService.add(this.model_livres).subscribe((result:any) => {
+      console.log(result);
+      //this.livres = result;
     });
   }
 }

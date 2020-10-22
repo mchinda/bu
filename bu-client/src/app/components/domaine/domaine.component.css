@@ -1,0 +1,8 @@
+#domaine input[type="text"]
+{
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}

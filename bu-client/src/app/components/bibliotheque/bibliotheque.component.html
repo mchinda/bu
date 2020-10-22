@@ -1,0 +1,13 @@
+<div class="container">
+  <form id="bu" action="" method="post">
+    <h1><strong>Ajout d'une bibliotheque!</strong></h1>
+    <fieldset>
+      <input name="nom" [(ngModel)]="model_bu.nom_bu" placeholder="Nom bibliotheque" type="text" tabindex="-1" required autofocus>
+    </fieldset>
+
+    </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
+  <button type="button" class="btn btn-primary" (click)="confirmer()">Valider</button>
+</div>

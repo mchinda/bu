@@ -29,8 +29,8 @@ th.mat-sort-header-sorted {
 
 #matElevation {
   margin-top:5%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 body {
@@ -78,8 +78,7 @@ fieldset {
   padding: 0;
 }
 
-#livres input[type="text"],
-#livres select[type="select"]
+#livres input[type="text"]
 {
 	width:50%;
 	border:1px solid #CCC;
@@ -88,30 +87,49 @@ fieldset {
 	padding:10px;
 }
 
+#livres select[type="select"]{
+  width:40%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+/* .btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+} */
+ #add_domaine {
+  cursor:pointer ;
+  width:9%;
+  border:none;
+  background:#0CF;
+  color:#FFF;
+  margin:5px;
+  padding:10px;
+  font-size:15px;
+  text-align: center;
+}
+
  #date_parution {
   width:25%;
   text-align: left;
   border:1px solid #CCC;
   background:#FFF;
-  margin:0 0 5px;
+  margin:5px;
   padding:1%;
  }
 
 #date_achat {
- width:25%;
+ width:24%;
  text-align: right;
  border:1px solid #CCC;
  background:#FFF;
- margin:0 0 5px;
+ margin:5px;
  padding:1%;
 }
 
-#livres select[type="select"] {
- width:50%;
- text-align: left;
-}
-
-#livres button[type="submit"]{
+#contact-submit{
 	cursor:pointer ;
 	width:20%;
 	border:none;
