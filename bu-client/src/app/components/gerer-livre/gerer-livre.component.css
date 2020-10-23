@@ -1,0 +1,70 @@
+
+table {
+  overflow: auto;
+  width: 100%;
+}
+ .table-row:focus {
+   background:#87CEFA;
+   outline-color: none;
+}
+
+tr.mat-footer-row, tr.mat-row {
+    height: 30px;
+}
+
+.toolbar-icon-disabled {
+  pointer-events: none;
+}
+.linkDisabled {
+  cursor: not-allowed;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.table-row:focus mat-cell {
+  color:white;
+}
+
+#matElevation {
+  margin-top:0%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#form-register {
+
+}
+
+fieldset
+{
+	border: medium none !important;
+	margin: 5px;
+  padding: 0;
+}
+
+#add_recherche
+{
+ cursor:pointer ;
+ width:15%;
+ border:none;
+ background:#0CF;
+ color:#FFF;
+ margin:5px;
+ padding:10px;
+ font-size:15px;
+ text-align: center;
+ outline:none;
+}
+
+#form-register input[type="text"]
+{
+	width:20%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin-top:5%;
+  margin-left:5px;
+	padding:10px;
+  outline:none;
+}

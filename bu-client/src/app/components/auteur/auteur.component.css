@@ -31,7 +31,6 @@ th.mat-sort-header-sorted {
   margin-top:0%;
   margin-left: 5%;
   margin-right: 5%;
-
 }
 
 body {
@@ -95,16 +94,13 @@ fieldset {
 	background:#FFF;
 	margin:0 0 5px;
 	padding:10px;
+  outline:none;
 }
-
-#auteurs input[type="date"] {
-  width:25%;
-  text-align: left;
- }
 
  #auteurs select[type="select"] {
    width:25%;
    text-align: left;
+   outline:none;
   }
 
 #auteurs button[type="button"]{
@@ -117,6 +113,7 @@ fieldset {
   padding:10px;
   font-size:15px;
   text-align: center;
+  outline:none;
 }
 
 #auteurs button[type="submit"]{
@@ -129,4 +126,5 @@ fieldset {
 	padding:10px;
 	font-size:15px;
   text-align: center;
+  outline:none;
 }

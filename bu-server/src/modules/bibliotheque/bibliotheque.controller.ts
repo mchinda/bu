@@ -15,7 +15,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { Request } from 'express';
 import { BaseController } from "./../../com/base.controller";
 
-@Controller('bibliotheque')
+@Controller('bu')
 export class BibliothequeController extends BaseController {
 
   constructor(private readonly buService: BibliothequeService) {

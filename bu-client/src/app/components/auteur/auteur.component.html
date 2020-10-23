@@ -8,8 +8,12 @@
     <fieldset>
       <input name="prenom" [(ngModel)]="model_auteur.prenom" placeholder="Prenom auteur" type="text" tabindex="2" required>
     </fieldset>
+
     <fieldset>
-      <input name="email" [(ngModel)]="model_auteur.email" placeholder="Email auteur" type="email" tabindex="3" required>
+      <input name="date_naissance" [(ngModel)]="model_auteur.date_naissance" placeholder="date naissance auteur" type="date" tabindex="3" title="Date de naissance" required>
+    </fieldset>
+    <fieldset>
+      <input name="email" [(ngModel)]="model_auteur.email" placeholder="Email auteur" type="email" tabindex="4" required>
     </fieldset>
 
     <fieldset>

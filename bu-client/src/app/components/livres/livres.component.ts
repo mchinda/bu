@@ -6,7 +6,9 @@ import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {DomaineComponent} from './../domaine/domaine.component';
 import {BibliothequeComponent} from './../bibliotheque/bibliotheque.component';
 import {AuteurComponent} from './../auteur/auteur.component';
-import {VillageService} from './../../services/village.service';
+import {BibliothequeService} from './../../services/bibliotheque.service';
+import {DomaineService} from './../../services/domaine.service';
+import {AuteurService} from './../../services/auteur.service';
 
 @Component({
   selector: 'app-livres',
@@ -15,9 +17,11 @@ import {VillageService} from './../../services/village.service';
 })
 export class LivresComponent implements OnInit {
 
-  public displyedLivresColumns : string [] = ['id','created','updated','titre','langue_livre','isbn','nbr_page','nbr_examplaire','date_achat','date_parution','auteur','emprunter','edit','delete'];
-  public livres:any;
-  public villages:any;
+
+  public bus:any;
+  public domaines:any;
+  public auteurs:any;
+
   public model_livres:any = {
     domaine:"",
     date_parution:"",
@@ -32,28 +36,40 @@ export class LivresComponent implements OnInit {
   }
 
   constructor(private livresService : LivreService,
-    private dialog: MatDialog,private villageService: VillageService) {
+    private dialog: MatDialog,private buService: BibliothequeService,
+    private domaineService:DomaineService, private auteurService: AuteurService) {
 
   }
 
   ngOnInit() {
-    this.findAll();
-    this.getVillage();
+    // this.findAllLivres();
+    this.findAllBu();
+    this.findAllDomaine();
+    this.findAllAteur();
  }
 
- getVillage(){
-   this.villageService.all().subscribe((result:any) => {
-     this.villages = result;
-     console.log(result,this.villages);
+ findAllBu(){
+   console.log('findAllBu');
+   this.buService.all().subscribe((result:any) => {
+     console.log(result);
+     this.bus = result;
+     console.log(result,this.bus);
    },(err:any) =>{
      console.log(err);
    });
  }
 
-  findAll(){
-    this.livresService.all().subscribe((result:any) => {
+  findAllDomaine(){
+    this.domaineService.all().subscribe((result:any) => {
       console.log(result);
-      this.livres = result;
+      this.domaines = result;
+    });
+  }
+
+  findAllAteur(){
+    this.auteurService.all().subscribe((result:any) => {
+      console.log(result);
+      this.auteurs = result;
     });
   }
 
@@ -113,5 +129,27 @@ export class LivresComponent implements OnInit {
       console.log(result);
       //this.livres = result;
     });
+  }
+
+editLivre(livre:any){
+  console.log(livre);
+  this.model_livres.domaine = livre.domaine;
+  this.model_livres.date_parution = livre.date_parution;
+  this.model_livres.isbn = livre.isbn;
+  this.model_livres.nbr_examplaire = livre.nbr_examplaire;
+  this.model_livres.auteur = livre.auteur;
+  this.model_livres.date_achat = livre.date_achat;
+  this.model_livres.nbr_page = livre.nbr_page;
+  this.model_livres.langue = livre.langue_livre;
+  this.model_livres.titre = livre.titre;
+  this.model_livres.image = livre.image;
+
+  }
+
+  deleteLivre(livre:any){
+    // console.log(livre);
+    // this.livresService.delete(livre.id).subscribe((result:any) => {
+    //   console.log(result);
+    // });
   }
 }

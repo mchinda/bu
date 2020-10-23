@@ -6,12 +6,14 @@ import {AuteurComponent} from './components/auteur/auteur.component';
 import {LoginComponent} from './components/login/login.component';
 import {EmprunteurComponent} from './components/emprunteur/emprunteur.component';
 import {HomeComponent} from './components/home/home.component';
+import { GererLivreComponent } from './components/gerer-livre/gerer-livre.component';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent,children:[
     {path: '', component: LivresComponent},
+    {path: 'gerer-livre', component: GererLivreComponent},
     {path: 'auteur', component: AuteurComponent},
     {path: 'user', component: UserComponent},
     {path: 'adherent', component: EmprunteurComponent},

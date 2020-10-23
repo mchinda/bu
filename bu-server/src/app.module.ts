@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PassportModule } from '@nestjs/passport';
 import { join } from 'path';
-import {UsersModule,LivreModule,AuteurModule} from './modules/';
+import {UsersModule,LivreModule,AuteurModule,BibliothequeModule,DomaineModule} from './modules/';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -20,7 +20,9 @@ import {UsersModule,LivreModule,AuteurModule} from './modules/';
             }),
             UsersModule,
             LivreModule,
-            AuteurModule
+            AuteurModule,
+            BibliothequeModule,
+            DomaineModule
           ],
   controllers: [AppController],
   providers: [AppService],

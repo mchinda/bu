@@ -10,4 +10,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   providers: [BibliothequeService],
   controllers: [BibliothequeController]
 })
-export class BibliothequeModule {}
+export class BibliothequeModule {
+  
+}

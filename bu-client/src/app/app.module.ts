@@ -22,6 +22,7 @@ import { DomaineComponent } from './components/domaine/domaine.component';
 import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HomeComponent } from './components/home/home.component';
 import { BibliothequeComponent } from './components/bibliotheque/bibliotheque.component';
+import { GererLivreComponent } from './components/gerer-livre/gerer-livre.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BibliothequeComponent } from './components/bibliotheque/bibliotheque.co
     DomaineComponent,
     HomeComponent,
     BibliothequeComponent,
+    GererLivreComponent,
   ],
   entryComponents: [DomaineComponent,BibliothequeComponent,AuteurComponent],
   imports: [

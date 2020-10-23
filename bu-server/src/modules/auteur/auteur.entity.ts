@@ -16,21 +16,15 @@ export class AuteurEntity extends BaseEntity{
   date_naissance :Date;
 
   @Column()
-  nationalite: string;
-
-  @Column()
-  telephone: string;
-
-  @Column()
-  sexe: string;
-
-  @Column()
   email: string;
+
+  @Column()
+  nationalite: string;
 
   @Column()
   site: string;
 
   @OneToMany(type => LivreEntity, livre => livre.auteur)
   livre : LivreEntity[];
-  
+
 }

@@ -50,28 +50,28 @@ body {
 	position:relative;
 }
 
-#auteurs input[type="text"],
-#auteurs input[type="email"],
-#auteurs input[type="tel"],
-#auteurs input[type="url"],
-#auteurs textarea,
-#auteurs button[type="submit"] {
+#emprunteur input[type="text"],
+#emprunteur input[type="email"],
+#emprunteur input[type="tel"],
+#emprunteur input[type="url"],
+#emprunteur textarea,
+#emprunteur button[type="submit"] {
    font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
  }
 
-#auteurs {
+#emprunteur {
   text-align: center;
 	padding:2%;
 }
 
-#auteurs h3 {
+#emprunteur h3 {
 	color: #F96;
 	display: block;
 	font-size: 30px;
 	font-weight: 400;
 }
 
-#auteurs h4 {
+#emprunteur h4 {
 	margin:5px 15px 15px;
 	display:block;
 	font-size:13px;
@@ -83,31 +83,28 @@ fieldset {
   padding: 0;
 }
 
-#auteurs input[type="text"],
-#auteurs select[type="select"],
-#auteurs input[type="email"],
-#auteurs input[type="tel"],
-#auteurs input[type="url"],
-#auteurs input[type="date"],
-#auteurs textarea {
+#emprunteur input[type="text"],
+#emprunteur select[type="select"],
+#emprunteur input[type="email"],
+#emprunteur input[type="tel"],
+#emprunteur input[type="url"],
+#emprunteur input[type="date"],
+#emprunteur textarea {
 	width:50%;
 	border:1px solid #CCC;
 	background:#FFF;
 	margin:0 0 5px;
 	padding:10px;
+  outline:none;
 }
 
-#auteurs input[type="date"] {
+#emprunteur input[type="date"] {
   width:50%;
   text-align: left;
+  outline:none;
  }
 
- #auteurs select[type="select"] {
-   width:50%;
-   text-align: left;
-  }
-
-#auteurs button[type="submit"]{
+#emprunteur button[type="submit"]{
 	cursor:pointer ;
 	width:20%;
 	border:none;
@@ -116,4 +113,5 @@ fieldset {
 	padding:10px;
 	font-size:15px;
   text-align: center;
+  outline:none;
 }

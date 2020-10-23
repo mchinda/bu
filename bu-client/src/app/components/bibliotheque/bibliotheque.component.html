@@ -1,15 +1,6 @@
 <div class="container">
   <form id="bu" action="" method="post">
     <h1><strong>Ajout d'une bibliotheque!</strong></h1>
-    <fieldset>
-          <select type="select" name="village"  data-placement="top" title="Ajout d'une bibliotheque">
-
-          <option value="0">Choisissez un village</option>
-          <option *ngFor="let v of villages" value="{{v.nom_village}}">{{v.nom_village}}</option>
-
-        </select>
-        <button id="add_domaine" type="button" (click)="addBU()" data-placement="top" title="Ajout d'une bibliotheque" >add</button>
-      </fieldset>
 
     <fieldset>
       <input name="nom" [(ngModel)]="model_bu.nom_bu" placeholder="Nom bibliotheque" type="text" tabindex="-1" required autofocus>
@@ -19,5 +10,7 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
-  <button type="button" class="btn btn-primary" (click)="confirmer()">Valider</button>
+
+    <button name="submit" type="submit" id="submit_bu" (click)="confirmer()">Valider</button>
+
 </div>

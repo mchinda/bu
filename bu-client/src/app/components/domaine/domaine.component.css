@@ -5,4 +5,17 @@
 	background:#FFF;
 	margin:0 0 5px;
 	padding:10px;
+	outline:none;
+}
+
+#submit_domaine {
+	cursor:pointer ;
+	width:20%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	padding:10px;
+	font-size:15px;
+  text-align: center;
+	outline:none;
 }

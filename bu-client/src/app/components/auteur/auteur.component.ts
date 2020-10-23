@@ -23,10 +23,10 @@ public pageIndex = 0;
 public model_auteur :any = {
     nom:"",
     prenom:"",
-    nationalite:"",
     date_naissance:"",
+    nationalite:"",
+    email:"",
     site:"",
-    email:""
   };
 
   constructor(
@@ -77,12 +77,10 @@ public model_auteur :any = {
     console.log(auteur);
     this.model_auteur.nom = auteur.nom;
     this.model_auteur.prenom = auteur.prenom;
-    this.model_auteur.nationalite = auteur.nationalite;
     this.model_auteur.date_naissance = auteur.date_naissance;
-    this.model_auteur.site = auteur.site;
-    this.model_auteur.telephone = auteur.telephone;
     this.model_auteur.email = auteur.email;
-    this.model_auteur.sexe = auteur.sexe;
+    this.model_auteur.nationalite = auteur.nationalite;
+    this.model_auteur.site = auteur.site;
   }
 
 /**

@@ -1,6 +1,6 @@
 import { Component, OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {VillageService} from './../../services/village.service';
+import {BibliothequeService} from './../../services/bibliotheque.service';
 
 @Component({
   selector: 'app-bibliotheque',
@@ -9,37 +9,39 @@ import {VillageService} from './../../services/village.service';
 })
 export class BibliothequeComponent implements OnInit {
 
-public villages:any;
-
 public model_bu:any = {
   nom_bu:""
 };
-
   constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<BibliothequeComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,private villageService: VillageService) {
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,private buService: BibliothequeService) {
   }
 
   ngOnInit(): void {
-    this.getVillage();
+
   }
 
-getVillage(){
-  this.villageService.all().subscribe((result:any) => {
-    this.villages = result;
-    console.log(result,this.villages);
+getAllBu(){
+  console.log(this.model_bu)
+  this.buService.all().subscribe((result:any) => {
+    this.model_bu.nom_bu = result;
+    console.log(result,this.model_bu.nom_bu);
   },(err:any) =>{
     console.log(err);
   });
 }
+
   confirmer(){
     this.addBU();
+    this.onNoClick(1);
   }
 
   addBU(){
-    console.log('ajout dune bu');
+    this.buService.add(this.model_bu).subscribe((result:any) => {
+    console.log(result);
+  });
   }
 
-  onNoClick(event:any){
+  onNoClick(event){
     this.dialogRef.close();
   }
 
