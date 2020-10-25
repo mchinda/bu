@@ -17,12 +17,14 @@ import { NgxPaginationModule} from 'ngx-pagination';
 import { MatMenuModule} from '@angular/material/menu';
 import { MenuComponent } from './components/menu/menu.component';
 import { EmprunteurComponent } from './components/emprunteur/emprunteur.component';
-import { ListeAdherentComponent } from './components/liste-adherent/liste-adherent.component';
+import { GererAdherentComponent } from './components/gerer-adherent/gerer-adherent.component';
 import { DomaineComponent } from './components/domaine/domaine.component';
 import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HomeComponent } from './components/home/home.component';
 import { BibliothequeComponent } from './components/bibliotheque/bibliotheque.component';
 import { GererLivreComponent } from './components/gerer-livre/gerer-livre.component';
+import { GererEmpruntsComponent } from './components/gerer-emprunts/gerer-emprunts.component';
+import { EmpruntsComponent } from './components/emprunts/emprunts.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,13 @@ import { GererLivreComponent } from './components/gerer-livre/gerer-livre.compon
     LivresComponent,
     MenuComponent,
     EmprunteurComponent,
-    ListeAdherentComponent,
+    GererAdherentComponent,
     DomaineComponent,
     HomeComponent,
     BibliothequeComponent,
     GererLivreComponent,
+    GererEmpruntsComponent,
+    EmpruntsComponent,
   ],
   entryComponents: [DomaineComponent,BibliothequeComponent,AuteurComponent],
   imports: [

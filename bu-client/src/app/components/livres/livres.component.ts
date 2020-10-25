@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {LivreService} from './../../services/livre.service';
 import {MatTableModule} from '@angular/material/table';
@@ -37,9 +37,11 @@ export class LivresComponent implements OnInit {
 
   constructor(private livresService : LivreService,
     private dialog: MatDialog,private buService: BibliothequeService,
-    private domaineService:DomaineService, private auteurService: AuteurService) {
+    private domaineService:DomaineService, private auteurService: AuteurService,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<LivresComponent>) {
 
   }
+
 
   ngOnInit() {
     // this.findAllLivres();
@@ -94,7 +96,7 @@ export class LivresComponent implements OnInit {
   addBU(){
     console.log('bu');
     const dialogRef = this.dialog.open(BibliothequeComponent,{
-    width : '20%',
+    width : '25%',
     // height :'30%',
     data : {
       domaine:""
@@ -110,7 +112,7 @@ export class LivresComponent implements OnInit {
 
   addDomaine(){
     const dialogRef = this.dialog.open(DomaineComponent,{
-    width : '20%',
+    width : '25%',
     // height :'30%',
     data : {
       domaine:""
@@ -130,6 +132,10 @@ export class LivresComponent implements OnInit {
       //this.livres = result;
     });
   }
+
+onNoClick(event){
+  this.dialogRef.close();
+}
 
 editLivre(livre:any){
   console.log(livre);

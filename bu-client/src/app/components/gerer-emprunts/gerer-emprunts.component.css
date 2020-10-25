@@ -1,0 +1,31 @@
+#form-register input[type="text"]
+{
+	width:70%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin-top:5%;
+  margin-left:5px;
+	padding:10px;
+  outline:none;
+}
+
+fieldset
+{
+	border: medium none !important;
+	margin: 5px;
+  padding: 0;
+}
+
+#add_recherche
+{
+ cursor:pointer ;
+ width:14%;
+ border:none;
+ background:#0CF;
+ color:#FFF;
+ margin:5px;
+ padding:10px;
+ font-size:15px;
+ text-align: center;
+ outline:none;
+}

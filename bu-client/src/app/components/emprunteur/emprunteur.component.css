@@ -55,9 +55,12 @@ body {
 #emprunteur input[type="tel"],
 #emprunteur input[type="url"],
 #emprunteur textarea,
-#emprunteur button[type="submit"] {
+#emprunteur button[type="submit"],
+#emprunteur button[type="button"] {
    font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
  }
+
+
 
 #emprunteur {
   text-align: center;
@@ -83,8 +86,17 @@ fieldset {
   padding: 0;
 }
 
+#emprunteur select[type="select"] {
+  width:25%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+  outline:none;
+  text-align: left;
+}
+
 #emprunteur input[type="text"],
-#emprunteur select[type="select"],
 #emprunteur input[type="email"],
 #emprunteur input[type="tel"],
 #emprunteur input[type="url"],
@@ -104,14 +116,28 @@ fieldset {
   outline:none;
  }
 
-#emprunteur button[type="submit"]{
+#emprunteur button[type="submit"]
+{
 	cursor:pointer ;
 	width:20%;
 	border:none;
+  margin:5px;
 	background:#0CF;
 	color:#FFF;
 	padding:10px;
 	font-size:15px;
   text-align: center;
   outline:none;
+}
+#emprunteur button[type="button"]{
+  cursor:pointer ;
+	width:20%;
+	border:none;
+  margin:5px;
+	background:#0CF;
+	color:#FFF;
+	padding:10px;
+	font-size:15px;
+  text-align: center;
+  outline:none;  
 }

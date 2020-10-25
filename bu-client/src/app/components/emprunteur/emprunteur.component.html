@@ -20,7 +20,7 @@
     </fieldset>
 
     <fieldset>
-      <select type="select" name="sexe" [(ngModel)]="model_adherent.sexe" tabindex="6">
+      <select id="id-select" type="select" name="sexe" [(ngModel)]="model_adherent.sexe" tabindex="6">
         <option value="0">Choisissez le sexe</option>
         <option value="1">Masculain</option>
         <option value="2">Feminin</option>
@@ -41,12 +41,10 @@
       <input name="direction" [(ngModel)]="model_adherent.direction" placeholder="direction" type="text" tabindex="10" required>
     </fieldset>
 
-    <!-- <fieldset>
-      <input name="codeemprunt" [(ngModel)]="model_adherent.code_emprunt" placeholder="Code emprunt" type="text" tabindex="6" required>
-    </fieldset> -->
-
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Valider</button>
+      <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
+
     </fieldset>
   </form>
   </div>

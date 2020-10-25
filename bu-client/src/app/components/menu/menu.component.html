@@ -4,14 +4,10 @@
     <li id="id_home"><a href="">Acueil</a></li>
     <li><a href="#">Bibliotheque</a>
       <ul id="submenu">
-        <li><a [routerLink]="['emprunts']">Emprunts</a></li>
-        <li><a [routerLink]="['adherent']">Adherent</a>
-          <li><a [routerLink]="['gerer-livre']">Gerer les livres</a>
-          <ul>
-            <li><a href="#">Ajout</a></li>
-            <li><a href="#">Liste</a></li>
-          </ul>
-        </li>
+        <li><a [routerLink]="['gerer-emprunts']">Gerer emprunts</a></li>
+        <!-- <li><a [routerLink]="['adherent']">Adherent</a></li> -->
+        <li><a [routerLink]="['gerer-adherent']">Gerer adherents</a></li>
+        <li><a [routerLink]="['gerer-livre']">Gerer les livres</a></li>
       </ul>
     </li>
     <li><a href="">News</a></li>

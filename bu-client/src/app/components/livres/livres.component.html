@@ -1,7 +1,7 @@
 <div class="container">
 <form id="livres" action="" method="post">
   <h3>Gestion des Livres</h3>
-  <h4>Ajout où modification d'un livre!</h4>
+  <h4>Ajout d'un livre!</h4>
   <fieldset>
       <select type="select" name="bibliotheque"  data-placement="top" title="Ajout d'une bibliotheque">
         <option value="0">Choisissez votre bibliotheque</option>
@@ -51,6 +51,8 @@
   </fieldset>
   <fieldset>
     <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" (click)="addLivre()">Valider</button>
+    <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
+
   </fieldset>
 </form>
 </div>

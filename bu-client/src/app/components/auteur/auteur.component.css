@@ -108,8 +108,8 @@ fieldset {
   width:20%;
   margin:5px;
   border:none;
-  background:#C0C0C0;
-  color:#FFF;
+  /* background:#C0C0C0; */
+  /* color:#FFF; */
   padding:10px;
   font-size:15px;
   text-align: center;

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
 import {EmprunteurService} from './../../services/emprunteur.service';
+import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-emprunteur',
@@ -20,7 +21,11 @@ public model_adherent:any = {
   direction:""
   // codeemprunt:""
 }
-  constructor(private emprunteurService: EmprunteurService) { }
+  constructor(private emprunteurService: EmprunteurService,private dialog: MatDialog,
+  @Optional() @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<EmprunteurComponent>) {
+
+  }
+
 
   ngOnInit(): void {
 
@@ -30,6 +35,10 @@ public model_adherent:any = {
     this.emprunteurService.add(this.model_adherent).subscribe((result:any) =>{
       console.log(result);
     });
+  }
+
+  onNoClick(event:any){
+    this.dialogRef.close();
   }
 
 }

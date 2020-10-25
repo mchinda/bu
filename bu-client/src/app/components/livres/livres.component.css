@@ -180,4 +180,16 @@ fieldset
 	font-size:15px;
   text-align: center;
   outline:none;
+  margin: 5px;
+}
+
+#btn-annuler {
+  	cursor:pointer ;
+  	width:20%;
+  	border:none;
+  	padding:10px;
+  	font-size:15px;
+    text-align: center;
+    outline:none;
+    margin: 5px;
 }
