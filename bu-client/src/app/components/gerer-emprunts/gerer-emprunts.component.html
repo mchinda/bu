@@ -1,9 +1,148 @@
+
 <form id="form-register">
-     <fieldset>
-
-       <input type="text" id="id-titre" placeholder="Code emprunt" />
+     <fieldset id="fieldset-search">
+       <input type="text"  placeholder="Code emprunt" />
+       <input type="text"  placeholder="Code emprunt" />
+       <input type="text"  placeholder="Code emprunt" />
        <button id="add_recherche" name="add_recherche" type="button" (click)="rechercher()" data-placement="top" title="Rechercher" >Rechercher</button>
-       <!-- <button id="add_livre" name="addLivre" type="button" (click)="addAdherent()" data-placement="top" title="Ajout livre" >Ajout</button> -->
-
      </fieldset>
-  </form>
+</form>
+
+<div class="row">
+<div class="col-4">
+<div class="container" id="id_fieldset">
+  <form class="form-horizontal form-label-left">
+    <fieldset class="custom-border">
+      <legend class="custom-border">Ajout d'un emprunt</legend>
+        <fieldset>
+          <select type="select" name="bibliotheque"  data-placement="top" title="Ajout d'une bibliotheque">
+            <option value="0">Choisissez votre bibliotheque</option>
+            <option value="1"> bibliotheque 1</option>
+            <option value="2"> bibliotheque 2</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <select type="select" name="codeLivre"  data-placement="top" title="Ajout d'un livre">
+            <option value="0">Choisissez le code du livre</option>
+            <option value="1"> code livre 1</option>
+            <option value="2"> code livre 2</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <select type="select" name="codeAderent"  data-placement="top" title="Ajout d'un adherent">
+            <option value="0">Choisissez le code adherent</option>
+            <option value="1"> adherent 1</option>
+            <option value="2"> adherent 2</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <input id="date_emprunt" name="date_emprunt"  placeholder="jj/dd/yyyy" title="Date emprunt" type="date" tabindex="4" required>
+        </fieldset>
+        <fieldset>
+          <input id="date_retour" name="date_retour"  placeholder="jj/dd/yyyy" title="Date retour" type="date" tabindex="5" required>
+        </fieldset>
+
+        <fieldset>
+          <button name="submit" type="submit" id="add-emprunt" data-submit="...Sending" (click)="addEmprunt()">Ajouter</button>
+          <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
+        </fieldset>
+    </fieldset>
+    </form>
+</div>
+</div>
+<div class="col-8 mat-elevation-z8">
+    <h1><strong>Liste des emprunts</strong></h1>
+    <table mat-table [dataSource]="emprunts">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let emprunt">emprunt.id</td>
+    </ng-container>
+
+    <ng-container matColumnDef="created">
+      <th mat-header-cell *matHeaderCellDef>created</th>
+      <td mat-cell *matCellDef="let emprunt">emprunt.created</td>
+    </ng-container>
+
+    <ng-container matColumnDef="updated">
+      <th mat-header-cell *matHeaderCellDef>updated</th>
+      <td mat-cell *matCellDef="let emprunt">emprunt.updated</td>
+    </ng-container>
+
+    <ng-container matColumnDef="bibliotheque">
+      <th mat-header-cell *matHeaderCellDef>bibliotheque</th>
+      <td mat-cell *matCellDef="let emprunt">emprunt.bibliotheque</td>
+    </ng-container>
+
+    <ng-container matColumnDef="livre">
+      <th mat-header-cell *matHeaderCellDef>livre</th>
+      <td mat-cell *matCellDef="let emprunt">emprunt.livre</td>
+    </ng-container>
+
+    <ng-container matColumnDef="adherent">
+      <th mat-header-cell *matHeaderCellDef>adherent</th>
+      <td mat-cell *matCellDef="let emprunt">emprunt.adherent</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>edit</th>
+      <td mat-cell *matCellDef="let adherent" (click)="editerAdherent(adherent)">
+        <span class="material-icons">
+        edit
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>delete</th>
+      <td mat-cell *matCellDef="let adherent">
+        <span class="material-icons">
+        delete
+        </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displyedEmpruntadherentColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displyedEmpruntadherentColumns;" ></tr>
+
+</table>
+<div class="row">
+  <div class="col-sm-12">
+      <mat-paginator [length] = "length" [pageSize]="pageSize" [pageIndex] = "pageIndex" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange($event)"></mat-paginator>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- <div class="container">
+    <div class="row col-12 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Parent ID</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            <tr>
+                <td>1</td>
+                <td>News</td>
+                <td>News Cate</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Products</td>
+                <td>Main Products</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Blogs</td>
+                <td>Parent Blogs</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+    </table>
+    </div>
+</div> -->

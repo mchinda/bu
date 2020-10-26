@@ -1,13 +1,65 @@
+
+table {
+  overflow: auto;
+  width: 100%;
+}
+ .table-row:focus {
+   background:#87CEFA;
+   outline-color: none;
+}
+
+tr.mat-footer-row, tr.mat-row {
+    height: 30px;
+}
+
+.toolbar-icon-disabled {
+  pointer-events: none;
+}
+.linkDisabled {
+  cursor: not-allowed;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.table-row:focus mat-cell {
+  color:white;
+}
+
 #form-register input[type="text"]
 {
-	width:70%;
+	width:15%;
 	border:1px solid #CCC;
 	background:#FFF;
 	margin-top:5%;
-  margin-left:5px;
+  margin-left:1%;
 	padding:10px;
   outline:none;
+  text-align: right;
 }
+
+#add_recherche
+{
+ cursor:pointer ;
+ width:15%;
+ border:none;
+ background:#0CF;
+ color:#FFF;
+ padding:10px;
+ font-size:15px;
+ outline:none;
+ margin-left:1%;
+ margin-right:20px;
+}
+
+#fieldset-search {
+  margin:5px;
+  font-size:15px;
+  outline:none;
+  text-align: right;
+}
+
 
 fieldset
 {
@@ -16,16 +68,98 @@ fieldset
   padding: 0;
 }
 
-#add_recherche
+#emprunt select[type="select"]
 {
- cursor:pointer ;
- width:14%;
- border:none;
- background:#0CF;
- color:#FFF;
- margin:5px;
- padding:10px;
- font-size:15px;
- text-align: center;
- outline:none;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:5px;
+	padding:10px;
+  outline:none;
 }
+
+fieldset.custom-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.custom-border {
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+		text-align: left;
+    color: #F96;
+  	font-size: 20px;
+}
+
+#id_fieldset select[type="select"]
+{
+  width:100%;
+  right: 100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0px;
+	padding:10px;
+  outline:none;
+  text-align: center;
+}
+
+#date_emprunt {
+	width:99%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:5px;
+	padding:10px;
+  outline:none;
+}
+
+.row {
+  margin:1%;
+}
+
+#date_retour{
+	width:99%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:5px;
+	padding:10px;
+  outline:none;
+}
+
+#add-emprunt
+{
+	cursor:pointer ;
+	width:20%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	padding:10px;
+	font-size:15px;
+  text-align: center;
+  outline:none;
+  margin: 5px;
+}
+
+#btn-annuler {
+  	cursor:pointer ;
+  	width:20%;
+  	border:none;
+  	padding:10px;
+  	font-size:15px;
+    text-align: center;
+    outline:none;
+    margin: 5px;
+}
+
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }

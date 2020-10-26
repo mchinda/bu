@@ -13,9 +13,9 @@ import { GererEmpruntsComponent } from './components/gerer-emprunts/gerer-emprun
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent,children:[
-    {path: '', component: LivresComponent},
-    {path: 'gerer-livre', component: GererLivreComponent},
+    {path: '', component: GererLivreComponent},
     {path:'gerer-emprunts',component: GererEmpruntsComponent},
+    {path: 'livre', component: LivresComponent},
     {path:'gerer-adherent',component: GererAdherentComponent},
     {path: 'auteur', component: AuteurComponent},
     {path: 'user', component: UserComponent},

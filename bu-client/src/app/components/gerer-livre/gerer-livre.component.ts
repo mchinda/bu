@@ -28,7 +28,7 @@ export class GererLivreComponent implements OnInit {
   }
 
   addLivre(){
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home/livre']);
   }
 
 editLivre(livre){
