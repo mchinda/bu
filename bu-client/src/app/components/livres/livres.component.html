@@ -18,40 +18,39 @@
     <button id="add_domaine" name="add_domaine" type="button" (click)="addDomaine()" data-placement="top" title="Ajout d'un domaine" >add</button>
   </fieldset>
   <fieldset>
-    <input name="titre" [(ngModel)]="model_livres.titre" placeholder="titre" type="text" tabindex="6" required>
+    <input name="titre" [(ngModel)]="model_livres.titre" placeholder="titre" type="text" required>
   </fieldset>
 
   <fieldset>
       <select type="select" name="auteur" data-placement="top" title="Ajout d'un auteur">
-        <option value="0">Choisissez l'auteur</option>
-        <option *ngFor="let auteur of auteurs" value="{{auteur.id}}">{{auteur.nom}} {{auteur.prenom}}</option>
-
+        <option value="0">Choisissez un auteur</option>
+        <option *ngFor="let auteur of auteurs" value="{{auteur.id}}">{{auteur.nom}}</option>
       </select>
-      <button id="add_domaine" name="add_domaine" type="button" (click)="addAuteur()" data-placement="top" title="Ajout d'un auteur" >add</button>
+      <button id="add_domaine" name="add_auteur" type="button" (click)="addAuteur()" data-placement="top" title="Ajout d'un auteur" >add</button>
   </fieldset>
 
   <fieldset>
-    <input name="isbn" [(ngModel)]="model_livres.isbn" placeholder="isbn" type="text" tabindex="2" required>
+    <input name="isbn" [(ngModel)]="model_livres.isbn" placeholder="isbn" type="text" required>
   </fieldset>
 
   <fieldset>
     <input name="nbr_examplaire" [(ngModel)]="model_livres.nbr_examplaire" placeholder="nbre examplaire" type="text" tabindex="3" required>
   </fieldset>
   <fieldset>
-    <input id="date_achat" name="date_achat" [(ngModel)]="model_livres.date_achat" placeholder="jj/dd/yyyy" title="Date d'achat" type="date" tabindex="4" required>
-    <input id="date_parution" name="date_parution" [(ngModel)]="model_livres.date_parution" placeholder="jj/dd/yyyy" title="Date parution" type="date" tabindex="4" required>
+    <input id="date_achat" name="date_achat" [(ngModel)]="model_livres.date_achat" placeholder="jj/dd/yyyy" title="Date d'achat" type="date" required>
+    <input id="date_parution" name="date_parution" [(ngModel)]="model_livres.date_parution" placeholder="jj/dd/yyyy" title="Date parution" type="date" required>
   </fieldset>
 
   <fieldset>
-    <input name="langue" [(ngModel)]="model_livres.langue" placeholder="langue" type="text" tabindex="5" required>
+    <input name="langue" [(ngModel)]="model_livres.langue" placeholder="langue" type="text" required>
   </fieldset>
 
   <fieldset>
-    <input name="image" [(ngModel)]="model_livres.image" type="file" id="upload" class="upload-box" placeholder="Upload File" tabindex="7">
+    <input name="image" [(ngModel)]="model_livres.image" type="file" id="upload" class="upload-box" placeholder="Upload File">
   </fieldset>
   <fieldset>
     <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" (click)="addLivre()">Valider</button>
-    <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
+    <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick()">Annuler</button>
 
   </fieldset>
 </form>

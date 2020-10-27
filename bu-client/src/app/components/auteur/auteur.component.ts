@@ -1,4 +1,4 @@
-import { Component, OnInit,AfterViewInit,Output, Input, OnChanges,SimpleChanges, ViewChild, EventEmitter,Inject, Optional } from '@angular/core';
+import { Component, ChangeDetectorRef,OnInit,AfterViewInit,Output, Input, OnChanges,SimpleChanges, ViewChild, EventEmitter,Inject, Optional } from '@angular/core';
 import {AuteurService} from './../../services/auteur.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
@@ -31,7 +31,7 @@ public model_auteur :any = {
 
   constructor(
     private auteurService:AuteurService,
-    public dialog: MatDialog,
+    public dialog: MatDialog, public changeDetectorRefs: ChangeDetectorRef,
     public dialogRef: MatDialogRef<AuteurComponent>,
       @Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
 
@@ -48,33 +48,29 @@ public model_auteur :any = {
       this.pageSize = event.pageSize;
     }
 
-    fermer(){
-      this.dialogRef.close();
-
-    }
-
   ngOnInit() {
-    // this.auteurs.paginator = this.paginator;
     this.getAllAuteur();
   }
 
   getAllAuteur(){
     this.auteurService.all().subscribe((result:any) =>{
       this.auteurs = result;
-      this.auteurs.paginator = this.paginator;
-      console.log(result);
     });
   }
 
   addAuteur(){
-    console.log(this.model_auteur);
-    this.auteurService.add(this.model_auteur).subscribe((result:any) =>{
+      this.auteurService.add(this.model_auteur).subscribe((result:any) =>{
+      this.auteurs.push(result);
       this.getAllAuteur();
+      this.model_auteur = {};
     });
   }
 
-  edit(auteur:any){
-    console.log(auteur);
+  onNoClick(){
+    this.dialogRef.close(this.auteurs);
+  }
+
+  edite(auteur:any){
     this.model_auteur.nom = auteur.nom;
     this.model_auteur.prenom = auteur.prenom;
     this.model_auteur.date_naissance = auteur.date_naissance;

@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
+import { Component,SimpleChanges, ChangeDetectorRef,OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {LivreService} from './../../services/livre.service';
 import {MatTableModule} from '@angular/material/table';
@@ -17,17 +17,17 @@ import {AuteurService} from './../../services/auteur.service';
 })
 export class LivresComponent implements OnInit {
 
-
   public bus:any;
   public domaines:any;
   public auteurs:any;
 
   public model_livres:any = {
-    domaine:"",
+    bibliotheque:{id:""},
+    auteur:{id:""},
+    domaine:{id:""},
     date_parution:"",
     isbn:"",
     nbr_examplaire:"",
-    auteur:"",
     date_achat:"",
     nbr_page:"",
     langue:"",
@@ -38,24 +38,22 @@ export class LivresComponent implements OnInit {
   constructor(private livresService : LivreService,
     private dialog: MatDialog,private buService: BibliothequeService,
     private domaineService:DomaineService, private auteurService: AuteurService,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<LivresComponent>) {
-
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<LivresComponent>,public ref: ChangeDetectorRef) {
   }
 
 
   ngOnInit() {
-    // this.findAllLivres();
-    this.findAllBu();
-    this.findAllDomaine();
-    this.findAllAteur();
+    this.refresh();
  }
 
+ ngOnChanges(changes : SimpleChanges){
+
+  }
+
  findAllBu(){
-   console.log('findAllBu');
    this.buService.all().subscribe((result:any) => {
-     console.log(result);
      this.bus = result;
-     console.log(result,this.bus);
    },(err:any) =>{
      console.log(err);
    });
@@ -63,23 +61,19 @@ export class LivresComponent implements OnInit {
 
   findAllDomaine(){
     this.domaineService.all().subscribe((result:any) => {
-      console.log(result);
       this.domaines = result;
     });
   }
 
   findAllAteur(){
     this.auteurService.all().subscribe((result:any) => {
-      console.log(result);
       this.auteurs = result;
     });
   }
 
-
   addAuteur(){
     const dialogRef = this.dialog.open(AuteurComponent,{
     width : '70%',
-    // height :'30%',
     data : {
       domaine:""
     }
@@ -87,7 +81,8 @@ export class LivresComponent implements OnInit {
 
   dialogRef.afterClosed().subscribe(result => {
        if(result){
-         // this.getPoste();
+         this.auteurs.push(result);
+         this.findAllAteur();
        }
    });
 
@@ -97,7 +92,6 @@ export class LivresComponent implements OnInit {
     console.log('bu');
     const dialogRef = this.dialog.open(BibliothequeComponent,{
     width : '25%',
-    // height :'30%',
     data : {
       domaine:""
     }
@@ -105,36 +99,41 @@ export class LivresComponent implements OnInit {
 
   dialogRef.afterClosed().subscribe(result => {
        if(result){
-         // this.getPoste();
-       }
+         this.bus.push(result);
+        }
    });
   }
+
+  refresh(){
+    this.findAllAteur();
+    this.findAllDomaine();
+    this.findAllBu();
+    }
 
   addDomaine(){
     const dialogRef = this.dialog.open(DomaineComponent,{
     width : '25%',
-    // height :'30%',
     data : {
       domaine:""
     }
   });
-
   dialogRef.afterClosed().subscribe(result => {
        if(result){
-         // this.getPoste();
+         this.domaines.push(result);
        }
    });
   }
 
   addLivre(){
+    console.log(this.model_livres);
     this.livresService.add(this.model_livres).subscribe((result:any) => {
       console.log(result);
-      //this.livres = result;
     });
   }
 
-onNoClick(event){
-  this.dialogRef.close();
+onNoClick(){
+  this.model_livres = {};
+  //this.dialogRef.close();
 }
 
 editLivre(livre:any){

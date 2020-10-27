@@ -26,7 +26,7 @@
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" (click)="addAuteur()" data-submit="...Sending">Valider</button>
       <!-- <button name="submit" type="button" id="btn_close" (click)="fermer()">Fermer</button> -->
-      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="fermer()">Fermer</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick()">Fermer</button>
 
     </fieldset>
   </form>
@@ -41,7 +41,7 @@
         <td mat-cell *matCellDef="let auteur">{{auteur.id}}</td>
       </ng-container>
 
-        <ng-container matColumnDef="nom">
+      <ng-container matColumnDef="nom">
         <th mat-header-cell *matHeaderCellDef>nom</th>
         <td mat-cell *matCellDef="let auteur">{{auteur.nom}}</td>
       </ng-container>
@@ -73,7 +73,7 @@
 
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef>edit</th>
-        <td mat-cell *matCellDef="let auteur" (click)="edit(auteur)">
+        <td mat-cell *matCellDef="let auteur" (click)="edite(auteur)">
           <button  mat-icon-button matTooltip="modifier un auteur">
           <i class="material-icons">edit</i>
           </button>

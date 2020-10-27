@@ -25,19 +25,23 @@ public model_domaine:any = {
 
   confirmer(){
     this.addDomaine();
+    this.findAllDomaine();
   }
 
   addDomaine(){
-    console.log('ajout domaine');
-    console.log(this.model_domaine);
     this.domaineService.add(this.model_domaine).subscribe((result:any) => {
-      console.log(result);
-      this.onNoClick(1);
+      this.onNoClick(result);
+    });
+  }
+
+  findAllDomaine(){
+    this.domaineService.all().subscribe((result:any) => {
+      this.model_domaine = result;
     });
   }
 
   onNoClick(event:any){
-    this.dialogRef.close();
+    this.dialogRef.close(event);
   }
 
 }

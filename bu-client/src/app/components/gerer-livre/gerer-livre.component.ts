@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
+import { Component, ChangeDetectorRef,OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
 import {LivreService} from './../../services/livre.service';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -19,7 +19,8 @@ export class GererLivreComponent implements OnInit {
   public livres:any;
 
   constructor(private livresService:LivreService,private dialog: MatDialog,
-    private route : ActivatedRoute,private router:Router) {
+              private route : ActivatedRoute,private router:Router,
+              public ref: ChangeDetectorRef) {
 
    }
 
@@ -35,7 +36,6 @@ editLivre(livre){
     console.log(livre);
     const dialogRef = this.dialog.open(LivresComponent,{
     width : '70%',
-    // height :'30%',
     data : {
       domaine:""
     }
@@ -43,17 +43,16 @@ editLivre(livre){
 
     dialogRef.afterClosed().subscribe(result => {
        if(result){
-         // this.getPoste();
+         //this.getPoste();
        }
     });
-
 }
-
 
 recherche(){
   console.log()
 }
-  findAllLivres(){
+
+findAllLivres(){
     this.livresService.all().subscribe((result:any) => {
       console.log(result);
       this.livres = result;
@@ -61,7 +60,7 @@ recherche(){
     });
   }
 
-  onPageChange(event:any){
+onPageChange(event:any){
 
   }
 
