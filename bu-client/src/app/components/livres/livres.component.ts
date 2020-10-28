@@ -20,11 +20,10 @@ export class LivresComponent implements OnInit {
   public bus:any;
   public domaines:any;
   public auteurs:any;
-
   public model_livres:any = {
-    bibliotheque:{id:""},
-    auteur:{id:""},
-    domaine:{id:""},
+    bibliotheque:-1,
+    domaine:-1,
+    auteur:-1,
     date_parution:"",
     isbn:"",
     nbr_examplaire:"",

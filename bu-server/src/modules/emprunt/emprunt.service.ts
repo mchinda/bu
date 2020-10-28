@@ -2,13 +2,12 @@ import { Injectable,BadRequestException, InternalServerErrorException, NotFoundE
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository, MoreThan, MoreThanOrEqual, LessThan, LessThanOrEqual, Between, IsNull, Equal, In } from "typeorm";
 import {BaseService} from "./../../com/base.service";
-import {EmprunterEntity} from "./../emprunter/emprunter.entity";
+import {EmpruntEntity} from "./../emprunt/emprunt.entity";
 
 @Injectable()
-export class EmprunterService extends BaseService {
+export class EmpruntService extends BaseService {
 
-  constructor(@InjectRepository(EmprunterEntity) private readonly emprunterRepository:Repository<EmprunterEntity>){
-    super(emprunterRepository);
+  constructor(@InjectRepository(EmpruntEntity) private readonly empruntRepository:Repository<EmpruntEntity>){
+    super(empruntRepository);
   }
-
 }

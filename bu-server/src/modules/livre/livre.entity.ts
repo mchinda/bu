@@ -1,10 +1,10 @@
 import { Entity, Column, OneToOne, OneToMany, ManyToOne,JoinColumn } from 'typeorm';
 import { Transform } from 'class-transformer';
 import {BaseEntity} from './../../com/base.entity';
-import {EmprunterEntity} from './../emprunter/emprunter.entity';
+import {EmpruntEntity} from './../emprunt/emprunt.entity';
 import {DomaineEntity} from './../domaine/domaine.entity';
 import {AuteurEntity} from './../auteur/auteur.entity';
-
+import {BibliothequeEntity} from './../bibliotheque/bibliotheque.entity';
 @Entity("livres")
 export class LivreEntity extends BaseEntity{
 
@@ -35,8 +35,11 @@ export class LivreEntity extends BaseEntity{
   @ManyToOne(type => AuteurEntity, auteur => auteur.livre)
   auteur:AuteurEntity;
 
-  @ManyToOne(type => EmprunterEntity, emprunter => emprunter.livre)
-  emprunter:EmprunterEntity;
+  @ManyToOne(type => BibliothequeEntity, bibliotheque => bibliotheque.livre)
+  bibliotheque:BibliothequeEntity;
+
+  @ManyToOne(type => EmpruntEntity, emprunt => emprunt.livre)
+  emprunt:EmpruntEntity;
 
   @ManyToOne(type => DomaineEntity, domaine => domaine.livre)
   domaine:DomaineEntity;

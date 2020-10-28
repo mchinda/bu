@@ -7,9 +7,11 @@ import { environment } from './../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class EmprunteurService extends BaseService {
+export class EmpruntService extends BaseService {
 
   constructor(private _http:HttpClient) {
-          super(_http,'emprunteur');
+          super(_http,'emprunt');
    }
+
+
 }

@@ -1,7 +1,7 @@
 import { Entity, Column, OneToOne, OneToMany, ManyToOne,JoinColumn } from 'typeorm';
 import { Transform } from 'class-transformer';
 import {BaseEntity} from './../../com/base.entity';
-import {EmprunterEntity} from './../emprunter/emprunter.entity';
+import {EmpruntEntity} from './../emprunt/emprunt.entity';
 @Entity("emprunteurs")
 export class EmprunteurEntity extends BaseEntity {
 
@@ -35,7 +35,7 @@ export class EmprunteurEntity extends BaseEntity {
   @Column()
   direction: string;
 
-  @OneToMany(type => EmprunterEntity, emprunter => emprunter.emprunteur)
-  emprunter:EmprunterEntity;
+  @OneToMany(type => EmpruntEntity, emprunt => emprunt.emprunteur)
+  emprunt:EmpruntEntity;
 
 }

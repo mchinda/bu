@@ -4,8 +4,8 @@ import {BaseEntity} from './../../com/base.entity';
 import {EmprunteurEntity} from './../emprunteur/emprunteur.entity';
 import {LivreEntity} from './../livre/livre.entity';
 
-@Entity("emprunters")
-export class EmprunterEntity extends BaseEntity {
+@Entity("Emprunts")
+export class EmpruntEntity extends BaseEntity {
 
   @Column({type: "timestamp", comment:'Date de de debut'})
   date_debut :Date;
@@ -16,9 +16,9 @@ export class EmprunterEntity extends BaseEntity {
   @Column()
   rendu :string;
 
-  @OneToMany(type => LivreEntity, livre => livre.emprunter)
+  @OneToMany(type => LivreEntity, livre => livre.emprunt)
   livre:LivreEntity;
 
-  @ManyToOne(type => EmprunteurEntity, emprunteur => emprunteur.emprunter)
+  @ManyToOne(type => EmprunteurEntity, emprunteur => emprunteur.emprunt)
   emprunteur :EmprunteurEntity;
 }

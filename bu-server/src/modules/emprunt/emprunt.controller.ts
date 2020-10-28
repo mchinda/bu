@@ -10,16 +10,16 @@ import {
   UseInterceptors,
   UploadedFile
 } from '@nestjs/common';
-import {EmprunterService} from "./emprunter.service";
+import {EmpruntService} from "./Emprunt.service";
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Request } from 'express';
 import { BaseController } from "./../../com/base.controller";
 
-@Controller('emprunter')
-export class EmprunterController extends BaseController {
+@Controller('Emprunt')
+export class EmpruntController extends BaseController {
 
-  constructor(private readonly emprunterService: EmprunterService) {
-    super(emprunterService);
+  constructor(private readonly empruntService: EmpruntService) {
+    super(empruntService);
   }
-  
+
 }

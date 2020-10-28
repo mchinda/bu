@@ -3,15 +3,15 @@
   <h3>Gestion des Livres</h3>
   <h4>Ajout d'un livre!</h4>
   <fieldset>
-      <select type="select" name="bibliotheque"  data-placement="top" title="Ajout d'une bibliotheque">
-        <option value="0">Choisissez votre bibliotheque</option>
+      <select [(ngModel)]="model_livres.bibliotheque" type="select" name="bibliotheque"  data-placement="top" title="Ajout d'une bibliotheque">
+        <option value="-1">Choisissez votre bibliotheque</option>
         <option *ngFor="let bu of bus" value="{{bu.id}}">{{bu.nom_bu}}</option>
       </select>
       <button id="add_domaine" type="button" (click)="addBU()" data-placement="top" title="Ajout d'une bibliotheque" >add</button>
     </fieldset>
     <fieldset>
-    <select type="select" name="domaine" data-placement="top" title="Ajout d'une domaine">
-      <option value="0">Choisissez le domaine</option>
+    <select [(ngModel)]="model_livres.domaine" type="select" name="domaine" data-placement="top" title="Ajout d'une domaine">
+      <option value="-1">Choisissez le domaine</option>
       <option *ngFor="let domaine of domaines" value="{{domaine.id}}">{{domaine.libelle}}</option>
     </select>
 
@@ -22,8 +22,8 @@
   </fieldset>
 
   <fieldset>
-      <select type="select" name="auteur" data-placement="top" title="Ajout d'un auteur">
-        <option value="0">Choisissez un auteur</option>
+      <select type="select" [(ngModel)]="model_livres.auteur" name="auteur" data-placement="top" title="Ajout d'un auteur">
+        <option value="-1">Choisissez un auteur</option>
         <option *ngFor="let auteur of auteurs" value="{{auteur.id}}">{{auteur.nom}}</option>
       </select>
       <button id="add_domaine" name="add_auteur" type="button" (click)="addAuteur()" data-placement="top" title="Ajout d'un auteur" >add</button>
