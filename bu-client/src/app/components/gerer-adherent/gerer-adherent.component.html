@@ -1,13 +1,11 @@
 <form id="form-register">
      <fieldset>
-
        <input type="text" id="id-titre" placeholder="CIN" />
        <input type="text" id="id-isbn" placeholder="Nom" />
        <input type="text" id="id-auteur" placeholder="Prenom" />
 
        <button id="add_recherche" name="add_recherche" type="button" (click)="rechercher()" data-placement="top" title="Rechercher" >Rechercher</button>
        <button id="add_livre" name="addLivre" type="button" (click)="addAdherent()" data-placement="top" title="Ajout livre" >Ajout</button>
-
      </fieldset>
    </form>
 <div class="mat-elevation-z8 col-11" id="matElevation">
@@ -17,16 +15,6 @@
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>id</th>
       <td mat-cell *matCellDef="let adherent">{{adherent.id}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="created">
-      <th mat-header-cell *matHeaderCellDef>created</th>
-      <td mat-cell *matCellDef="let adherent">{{adherent.created}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="updated">
-      <th mat-header-cell *matHeaderCellDef>updated</th>
-      <td mat-cell *matCellDef="let adherent">{{adherent.updated}}</td>
     </ng-container>
 
     <ng-container matColumnDef="code">
@@ -90,7 +78,7 @@
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>delete</th>
-      <td mat-cell *matCellDef="let adherent">
+      <td mat-cell *matCellDef="let adherent" (click)="deleteAdherent(adherent)">
         <span class="material-icons">
         delete
         </span>

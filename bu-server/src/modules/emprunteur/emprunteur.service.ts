@@ -10,4 +10,14 @@ export class EmprunteurService extends BaseService {
   constructor(@InjectRepository(EmprunteurEntity) private readonly emprunteurRepository:Repository<EmprunteurEntity>){
     super(emprunteurRepository);
   }
+
+  async deleteAdherent(body:any){
+    await this.emprunteurRepository
+      .createQueryBuilder()
+      .delete()
+      .from(EmprunteurEntity)
+      .where("id = :id", { id: body.id, code:body.code})
+      .execute();
+  }
+
 }

@@ -10,11 +10,7 @@ import {EmprunteurComponent} from './../emprunteur/emprunteur.component';
   styleUrls: ['./gerer-adherent.component.css']
 })
 export class GererAdherentComponent implements OnInit {
-public displyedadherentColumns : string [] =
-                                      ['id','created','updated',
-                                      'code','nom','prenom','date_naissance','profession',
-                                      'sexe','adresse','telephone','direction','email',
-                                      'edit','delete'];
+public displyedadherentColumns : string [] = ['id','code','nom','prenom','date_naissance','profession','sexe','adresse','telephone','direction','email','edit','delete'];
 
 public pageSizeOptions = [5,10,50];
 public length = 10;
@@ -39,14 +35,20 @@ constructor(private emprunteurService:EmprunteurService,private route : Activate
    console.log(this.adherents);
  }
 
+deleteAdherent(adherent:any){
+  this.emprunteurService.deleteAdherent(adherent).subscribe(result =>{
+    console.log(result);
+    this.findAll();
+  });
+}
 
 editerAdherent(adherent:any){
   console.log(adherent);
   const dialogRef = this.dialog.open(EmprunteurComponent,{
-  width : '70%',
+  width : '50%',
   // height :'30%',
   data : {
-    domaine:""
+    adherent:adherent
   }
   });
 

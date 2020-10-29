@@ -12,4 +12,9 @@ export class EmprunteurService extends BaseService {
   constructor(private _http:HttpClient) {
           super(_http,'emprunteur');
    }
+
+   deleteAdherent(adherent:any){
+    return this._http.post(`${environment.BASE_URL}/${this.endpoint}/delete`,adherent);
+  }
+
 }

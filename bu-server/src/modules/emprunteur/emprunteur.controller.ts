@@ -22,4 +22,11 @@ export class EmprunteurController extends BaseController {
     super(emprunteurService);
   }
 
+  @Post('delete')
+  async deleteAdherent(@Body() body:any){
+    console.log("delete...");
+    console.log(body);
+    return await this.emprunteurService.deleteAdherent(body);
+   }
+
 }

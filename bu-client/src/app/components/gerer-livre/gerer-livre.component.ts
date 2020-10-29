@@ -35,9 +35,9 @@ export class GererLivreComponent implements OnInit {
 editLivre(livre){
     console.log(livre);
     const dialogRef = this.dialog.open(LivresComponent,{
-    width : '70%',
+    width : '50%',
     data : {
-      domaine:""
+      livre:livre
     }
     });
 

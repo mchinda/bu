@@ -52,8 +52,6 @@ body {
 
 .container
 {
-	max-width:50%;
-	/* width:50%; */
 	margin:0 auto;
 	position:relative;
 }
@@ -115,7 +113,7 @@ fieldset
 #livres input[type="text"],
 #livres input[type="file"]
 {
-	width:50%;
+	width:40%;
 	border:1px solid #CCC;
 	background:#FFF;
 	margin:0 0 5px;
@@ -125,12 +123,34 @@ fieldset
 
 #livres select[type="select"]
 {
-  width:40%;
+  width:30%;
 	border:1px solid #CCC;
 	background:#FFF;
 	margin:0 0 5px;
 	padding:10px;
   outline:none;
+}
+
+#date_parution
+{
+  width:20%;
+  text-align: left;
+  border:1px solid #CCC;
+  background:#FFF;
+  margin:5px;
+  padding:1%;
+  outline:none;
+}
+
+#date_achat
+{
+ width:20%;
+ text-align: left;
+ border:1px solid #CCC;
+ background:#FFF;
+ margin:5px;
+ padding:1%;
+ outline:none;
 }
 
  #add_domaine
@@ -147,32 +167,10 @@ fieldset
   outline:none;
 }
 
-#date_parution
-{
-  width:25%;
-  text-align: left;
-  border:1px solid #CCC;
-  background:#FFF;
-  margin:5px;
-  padding:1%;
-  outline:none;
-}
-
-#date_achat
-{
- width:24%;
- text-align: left;
- border:1px solid #CCC;
- background:#FFF;
- margin:5px;
- padding:1%;
- outline:none;
-}
-
 #contact-submit
 {
 	cursor:pointer ;
-	width:20%;
+	width:15%;
 	border:none;
 	background:#0CF;
 	color:#FFF;
@@ -185,7 +183,7 @@ fieldset
 
 #btn-annuler {
   	cursor:pointer ;
-  	width:20%;
+  	width:15%;
   	border:none;
   	padding:10px;
   	font-size:15px;

@@ -24,7 +24,6 @@
           <select type="select" [(ngModel)]="model_emprunts.codeLivre" name="codeLivre"  data-placement="top" title="Ajout d'un livre">
             <option value="-1">Choisissez le code du livre</option>
             <option *ngFor="let livre of livres" value="{{livre.id}}">{{livre.isbn}}</option>
-
           </select>
         </fieldset>
         <fieldset>
@@ -43,7 +42,7 @@
 
         <fieldset>
           <button name="submit" type="submit" id="add-emprunt" data-submit="...Sending" (click)="addEmprunt()">Ajouter</button>
-          <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
+          <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="init($event)">Annuler</button>
         </fieldset>
     </fieldset>
     </form>

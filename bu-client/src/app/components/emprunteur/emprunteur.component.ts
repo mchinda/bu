@@ -23,22 +23,37 @@ public model_adherent:any = {
 }
   constructor(private emprunteurService: EmprunteurService,private dialog: MatDialog,
   @Optional() @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<EmprunteurComponent>) {
-
+    console.log(data);
+    this.loadData(data);
   }
 
+  loadData(data:any){
+    console.log(data);
+    this.model_adherent.code = data.adherent.code;
+    this.model_adherent.nom = data.adherent.nom;
+    this.model_adherent.prenom= data.adherent.prenom;
+    this.model_adherent.date_naissance= data.adherent.date_naissance;
+    this.model_adherent.profession= data.adherent.profession;
+    this.model_adherent.sexe= data.adherent.sexe;
+    this.model_adherent.adresse= data.adherent.adresse;
+    this.model_adherent.telephone= data.adherent.telephone;
+    this.model_adherent.email= data.adherent.email;
+    this.model_adherent.direction= data.adherent.direction;
+  }
 
   ngOnInit(): void {
 
   }
 
-  addAdherent(){
+  addOrUpdateAdherent(){
+    console.log(this.model_adherent);
     this.emprunteurService.add(this.model_adherent).subscribe((result:any) =>{
       console.log(result);
     });
   }
 
   onNoClick(event:any){
-    this.dialogRef.close();
+    this.model_adherent = {};
   }
 
 }

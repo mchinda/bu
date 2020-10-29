@@ -8,9 +8,9 @@ table {
    outline-color: none;
 }
 
-tr.mat-footer-row, tr.mat-row {
-    height: 30px;
-}
+/* tr.mat-footer-row, tr.mat-row {
+    height: 5px;
+} */
 
 .toolbar-icon-disabled {
   pointer-events: none;
