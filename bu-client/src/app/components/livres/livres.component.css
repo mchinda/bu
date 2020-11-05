@@ -50,25 +50,67 @@ body {
 	background:#0CF;
 }
 
-.container
-{
-	margin:0 auto;
-	position:relative;
+.container {
+	text-align: center;
 }
 
 #livres input[type="text"],
 #livres input[type="file"],
+#livres input[type="select"],
+#livres input[type="datetime-local"],
 #livres button[type="submit"]
 {
  font:400 12px/16px "Open Sans",
   Helvetica, Arial, sans-serif;
-
 }
 
 #livres
 {
-  text-align: center;
+  text-align: left;
 	padding:2%;
+}
+
+#livres input[type="text"],
+#livres input[type="file"]
+{
+	width:40%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+  outline:none;
+}
+
+#livres select[type="select"]
+{
+	width:35%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+  outline:none;
+}
+
+#date_parution
+{
+  width:20%;
+  text-align: left;
+  border:1px solid #CCC;
+  background:#FFF;
+  margin:0 0 5px;
+  padding:1%;
+  outline:none;
+}
+
+#date_achat
+{
+ width:20%;
+ text-align: left;
+ border:1px solid #CCC;
+ background:#FFF;
+ margin:0 0 5px;
+ padding:1%;
+ outline:none;
 }
 
 h3
@@ -108,55 +150,13 @@ fieldset
 	border: medium none !important;
 	margin: 0 0 5px;
   padding: 0;
-}
-
-#livres input[type="text"],
-#livres input[type="file"]
-{
-	width:40%;
-	border:1px solid #CCC;
-	background:#FFF;
-	margin:0 0 5px;
-	padding:10px;
-  outline:none;
-}
-
-#livres select[type="select"]
-{
-  width:30%;
-	border:1px solid #CCC;
-	background:#FFF;
-	margin:0 0 5px;
-	padding:10px;
-  outline:none;
-}
-
-#date_parution
-{
-  width:20%;
-  text-align: left;
-  border:1px solid #CCC;
-  background:#FFF;
-  margin:5px;
-  padding:1%;
-  outline:none;
-}
-
-#date_achat
-{
- width:20%;
- text-align: left;
- border:1px solid #CCC;
- background:#FFF;
- margin:5px;
- padding:1%;
- outline:none;
+  text-align: center;
 }
 
  #add_domaine
  {
+  width: 5%;
   cursor:pointer ;
-  width:9%;
   border:none;
   background:#0CF;
   color:#FFF;
@@ -167,10 +167,10 @@ fieldset
   outline:none;
 }
 
-#contact-submit
+#btn-valider
 {
 	cursor:pointer ;
-	width:15%;
+	width:10%;
 	border:none;
 	background:#0CF;
 	color:#FFF;
@@ -183,7 +183,7 @@ fieldset
 
 #btn-annuler {
   	cursor:pointer ;
-  	width:15%;
+  	width:10%;
   	border:none;
   	padding:10px;
   	font-size:15px;

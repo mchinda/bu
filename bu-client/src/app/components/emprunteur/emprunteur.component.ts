@@ -1,6 +1,7 @@
-import { Component, OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
+import { Component, OnInit,Inject,ViewChild,Optional,EventEmitter,Output,Input } from '@angular/core';
 import {EmprunteurService} from './../../services/emprunteur.service';
 import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-emprunteur',
@@ -8,48 +9,42 @@ import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./emprunteur.component.css']
 })
 export class EmprunteurComponent implements OnInit {
+@ViewChild('closebutton') closebutton;
 public model_adherent:any = {
   code:"",
   nom:"",
   prenom:"",
-  date_naissance:"",
+  date_naissance: new Date(),
   profession:"",
   sexe:"",
   adresse:"",
   telephone:"",
   email:"",
   direction:""
-  // codeemprunt:""
-}
+};
   constructor(private emprunteurService: EmprunteurService,private dialog: MatDialog,
   @Optional() @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<EmprunteurComponent>) {
     console.log(data);
-    this.loadData(data);
+    if(data){
+      this.loadData(data);
+    }
   }
 
   loadData(data:any){
-    console.log(data);
-    this.model_adherent.code = data.adherent.code;
-    this.model_adherent.nom = data.adherent.nom;
-    this.model_adherent.prenom= data.adherent.prenom;
-    this.model_adherent.date_naissance= data.adherent.date_naissance;
-    this.model_adherent.profession= data.adherent.profession;
-    this.model_adherent.sexe= data.adherent.sexe;
-    this.model_adherent.adresse= data.adherent.adresse;
-    this.model_adherent.telephone= data.adherent.telephone;
-    this.model_adherent.email= data.adherent.email;
-    this.model_adherent.direction= data.adherent.direction;
+    this.model_adherent = data.adherent;
+    this.model_adherent.date_naissance = new Date(data.adherent.date_naissance).toISOString().split('.')[0];
   }
 
   ngOnInit(): void {
 
   }
 
-  addOrUpdateAdherent(){
+  addAdherent(){
     console.log(this.model_adherent);
-    this.emprunteurService.add(this.model_adherent).subscribe((result:any) =>{
+    this.emprunteurService.add(this.model_adherent).subscribe((result:any) => {
       console.log(result);
     });
+    this.model_adherent = {};
   }
 
   onNoClick(event:any){

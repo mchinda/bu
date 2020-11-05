@@ -23,4 +23,11 @@ export class LivreController extends BaseController {
     super(livreService);
   }
 
+
+    @Post('delete')
+    async deleteLivre(@Body() body:any){
+      return await this.livreService.deleteLivre(body);
+     }
+
+
 }

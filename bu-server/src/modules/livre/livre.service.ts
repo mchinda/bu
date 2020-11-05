@@ -10,4 +10,13 @@ export class LivreService extends BaseService {
     super(livreRepository);
   }
 
+  async deleteLivre(body:any){
+    await this.livreRepository
+      .createQueryBuilder()
+      .delete()
+      .from(LivreEntity)
+      .where("id = :id", { id: body.id, isbn:body.isbn})
+      .execute();
+  }
+
 }

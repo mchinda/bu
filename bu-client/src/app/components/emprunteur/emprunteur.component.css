@@ -87,7 +87,7 @@ fieldset {
 #emprunteur input[type="email"],
 #emprunteur input[type="tel"],
 #emprunteur input[type="url"],
-#emprunteur input[type="date"],
+#emprunteur input[type="datetime-local"],
 #emprunteur textarea {
 	width:30%;
 	border:1px solid #CCC;
@@ -97,7 +97,7 @@ fieldset {
   outline:none;
 }
 
-#emprunteur input[type="date"] {
+#emprunteur input[type="datetime-local"] {
   width:30%;
   text-align: left;
   outline:none;
@@ -117,7 +117,7 @@ fieldset {
   outline:none;
 }
 #emprunteur button[type="button"]{
-  cursor:pointer ;
+  cursor:pointer;
 	width:15%;
 	border:none;
   margin:5px;

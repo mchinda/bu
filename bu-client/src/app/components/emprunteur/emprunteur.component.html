@@ -12,18 +12,16 @@
       <input name="prenom" [(ngModel)]="model_adherent.prenom" placeholder="Prenom adherent" type="text" tabindex="3" required>
     </fieldset>
     <fieldset>
-      <input name="date_naissance" [(ngModel)]="model_adherent.date_naissance" placeholder="jj/dd/yyyy" title="date de naissance" type="date" tabindex="4" required>
+      <input type="datetime-local" name="date_naissance" [(ngModel)]="model_adherent.date_naissance" placeholder="DD/MM/YYYY" title="date de naissance" tabindex="4" required>
     </fieldset>
-
     <fieldset>
       <input name="profession" [(ngModel)]="model_adherent.profession" placeholder="Profession" type="text" tabindex="5" required>
     </fieldset>
-
     <fieldset>
       <select id="id-select" type="select" name="sexe" [(ngModel)]="model_adherent.sexe" tabindex="6">
         <option value="0">Choisissez le sexe</option>
-        <option value="1">Masculain</option>
-        <option value="2">Feminin</option>
+        <option value="M">Masculin</option>
+        <option value="F">Feminin</option>
       </select>
     </fieldset>
     <fieldset>
@@ -32,19 +30,15 @@
     <fieldset>
       <input name="telephone" [(ngModel)]="model_adherent.telephone" placeholder="Téléphone" type="tel" tabindex="8" required>
     </fieldset>
-
     <fieldset>
       <input name="email" [(ngModel)]="model_adherent.email" placeholder="Email adherent" type="email" tabindex="9" required>
     </fieldset>
-
     <fieldset>
       <input name="direction" [(ngModel)]="model_adherent.direction" placeholder="direction" type="text" tabindex="10" required>
     </fieldset>
-
     <fieldset>
-      <button name="submit" type="submit" id="contact-submit" (click)="addOrUpdateAdherent()" data-submit="...Sending">Valider</button>
+      <button name="submit" type="submit" id="contact-submit" (click)="addAdherent()" data-submit="...Sending">Valider</button>
       <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">Annuler</button>
-
     </fieldset>
   </form>
   </div>

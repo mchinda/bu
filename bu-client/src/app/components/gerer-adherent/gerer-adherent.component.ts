@@ -1,6 +1,6 @@
 import { Component, OnInit,Inject,Optional,EventEmitter,Output,Input } from '@angular/core';
 import {EmprunteurService} from './../../services/emprunteur.service';
-import { ActivatedRoute,Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {EmprunteurComponent} from './../emprunteur/emprunteur.component';
 
@@ -14,7 +14,7 @@ public displyedadherentColumns : string [] = ['id','code','nom','prenom','date_n
 
 public pageSizeOptions = [5,10,50];
 public length = 10;
-public pageSize =5;
+public pageSize = 5;
 public pageIndex = 0;
 public adherents:any;
 
@@ -27,23 +27,17 @@ constructor(private emprunteurService:EmprunteurService,private route : Activate
    this.findAll();
  }
 
- addAdherent(){
-   this.router.navigate(['/home/adherent']);
- }
-
  rechercher(){
-   console.log(this.adherents);
+   console.log('this.adherents');
  }
 
 deleteAdherent(adherent:any){
   this.emprunteurService.deleteAdherent(adherent).subscribe(result =>{
-    console.log(result);
     this.findAll();
   });
 }
 
 editerAdherent(adherent:any){
-  console.log(adherent);
   const dialogRef = this.dialog.open(EmprunteurComponent,{
   width : '50%',
   // height :'30%',
@@ -63,7 +57,6 @@ editerAdherent(adherent:any){
 findAll() {
   this.emprunteurService.all().subscribe((result:any) =>{
     this.adherents = result;
-    console.log(this.adherents);
   });
 }
 

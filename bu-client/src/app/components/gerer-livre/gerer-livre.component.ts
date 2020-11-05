@@ -12,24 +12,19 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class GererLivreComponent implements OnInit {
   public displyedLivresColumns : string [] = ['id','titre','langue_livre','isbn','nbr_page','nbr_examplaire','date_achat','date_parution','auteur','emprunter','image_livre','edit','delete'];
-  public pageSizeOptions = [5,10,50];
-  public length = 10;
-  public pageSize =5;
-  public pageIndex = 0;
+  public pageSizeOptions=[5,10,50];
+  public length=10;
+  public pageSize=5;
+  public pageIndex=0;
   public livres:any;
 
   constructor(private livresService:LivreService,private dialog: MatDialog,
               private route : ActivatedRoute,private router:Router,
               public ref: ChangeDetectorRef) {
-
    }
 
   ngOnInit(): void {
     this.findAllLivres();
-  }
-
-  addLivre(){
-    this.router.navigate(['/home/livre']);
   }
 
 editLivre(livre){
@@ -48,15 +43,23 @@ editLivre(livre){
     });
 }
 
+deleteLivre(livre:any){
+  this.livresService.deleteLivre(livre).subscribe((result:any)=>{
+    this.findAllLivres();
+  },(err:any)=>{
+    console.log(err);
+  });
+}
+
 recherche(){
   console.log()
 }
 
 findAllLivres(){
     this.livresService.all().subscribe((result:any) => {
-      console.log(result);
       this.livres = result;
-      console.log(this.livres)
+    },(err:any) => {
+      console.log(err);
     });
   }
 

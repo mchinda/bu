@@ -3,9 +3,8 @@
        <input type="text" id="id-titre" placeholder="CIN" />
        <input type="text" id="id-isbn" placeholder="Nom" />
        <input type="text" id="id-auteur" placeholder="Prenom" />
-
        <button id="add_recherche" name="add_recherche" type="button" (click)="rechercher()" data-placement="top" title="Rechercher" >Rechercher</button>
-       <button id="add_livre" name="addLivre" type="button" (click)="addAdherent()" data-placement="top" title="Ajout livre" >Ajout</button>
+       <button id="add_adherent" name="addAdherent" type="button" [routerLink]="['./../adherent']" data-placement="top" title="Ajout des adhérent" >Ajout</button>
      </fieldset>
    </form>
 <div class="mat-elevation-z8 col-11" id="matElevation">
@@ -34,7 +33,7 @@
 
     <ng-container matColumnDef="date_naissance">
       <th mat-header-cell *matHeaderCellDef>date_naissance</th>
-      <td mat-cell *matCellDef="let adherent">{{adherent.date_naissance}}</td>
+      <td mat-cell *matCellDef="let adherent">{{adherent.date_naissance | date : 'dd/MM/yyyy'}}</td>
     </ng-container>
 
     <ng-container matColumnDef="profession">

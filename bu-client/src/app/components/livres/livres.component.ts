@@ -32,15 +32,17 @@ export class LivresComponent implements OnInit {
     langue:"",
     titre:"",
     image:""
-  }
+  };
 
   constructor(private livresService : LivreService,
     private dialog: MatDialog,private buService: BibliothequeService,
     private domaineService:DomaineService, private auteurService: AuteurService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<LivresComponent>,public ref: ChangeDetectorRef) {
-      console.log(data);
-      this.editLivre(data);
+      if(data){
+        console.log(data);
+        this.editLivre(data);
+      }
   }
 
 

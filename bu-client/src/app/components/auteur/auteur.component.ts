@@ -5,6 +5,7 @@ import {MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatMenuModule} from '@angular/material/menu';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-auteur',
@@ -18,9 +19,10 @@ public auteurs:any;
 @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 public pageSizeOptions = [5,10,50];
 public length = 10;
-public pageSize =5;
+public pageSize = 5;
 public pageIndex = 0;
 public model_auteur :any = {
+    id:"",
     nom:"",
     prenom:"",
     date_naissance:"",
@@ -28,6 +30,10 @@ public model_auteur :any = {
     email:"",
     site:"",
   };
+  public action:any ={
+    add:"",
+    edit:""
+  }
 
   constructor(
     private auteurService:AuteurService,
@@ -58,22 +64,41 @@ public model_auteur :any = {
     });
   }
 
-  addAuteur(){
+  addAuteur(add:any){
+    this.action.add = add;
+    this.model_auteur.date_naissance = moment(this.model_auteur.date_naissance).format("DD/MM/YYYY");
+    if(this.action.edit == '' && this.action.add == 'add'){
       this.auteurService.add(this.model_auteur).subscribe((result:any) =>{
-      this.auteurs.push(result);
-      this.getAllAuteur();
-      this.model_auteur = {};
-    });
+        this.auteurs.push(result);
+        this.getAllAuteur();
+        this.model_auteur = {};
+      },(err_add)=>{
+        console.log(err_add);
+      });
+
+    }else if(this.action.edit =='edit'){
+      this.auteurService.update(this.model_auteur.id,this.model_auteur).subscribe((result:any) =>{
+        this.auteurs.push(result);
+        this.getAllAuteur();
+          this.model_auteur = {};
+      },(err_update)=>{
+        console.log(err_update);
+      });
+    }
   }
 
   onNoClick(){
-    this.dialogRef.close(this.auteurs);
+    // this.dialogRef.close(this.auteurs);
+    this.model_auteur = {};
   }
 
-  edite(auteur:any){
+  edite(auteur:any,edit:any){
+    this.action.edit = edit;
+    this.action.add = "";
+    this.model_auteur.id = auteur.id;
     this.model_auteur.nom = auteur.nom;
     this.model_auteur.prenom = auteur.prenom;
-    this.model_auteur.date_naissance = auteur.date_naissance;
+    this.model_auteur.date_naissance = moment(auteur.date_naissance).format("DD/MM/YYYY");
     this.model_auteur.email = auteur.email;
     this.model_auteur.nationalite = auteur.nationalite;
     this.model_auteur.site = auteur.site;

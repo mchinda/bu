@@ -54,7 +54,7 @@
     "material-design-icons-iconfont": "^5.0.1",
     "material-icons": "^0.3.1",
     "material-table": "^1.57.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.1",
     "ng-bootstrap": "^1.6.3",
     "ng-mat-interactions-dialog": "^2.0.0",
     "ng-multiselect-dropdown": "^0.2.10",
