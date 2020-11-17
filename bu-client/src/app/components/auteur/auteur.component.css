@@ -28,8 +28,8 @@ th.mat-sort-header-sorted {
 }
 
 #matElevation {
-  margin-top:0%;
-  /* margin-left: 5%; */
+  margin-top:1%;
+  margin-left: 5%;
   margin-right: 5%;
 }
 
@@ -87,7 +87,7 @@ fieldset {
 #auteurs input[type="email"],
 #auteurs input[type="tel"],
 #auteurs input[type="url"],
-#auteurs input[type="date"],
+#auteurs input[type="datetime-local"],
 #auteurs textarea {
 	width:50%;
 	border:1px solid #CCC;
@@ -105,12 +105,8 @@ fieldset {
 
 #auteurs button[type="button"]{
   cursor:pointer ;
-  width:20%;
   margin:5px;
   border:none;
-  /* background:#C0C0C0; */
-  /* color:#FFF; */
-  padding:10px;
   font-size:15px;
   text-align: center;
   outline:none;
@@ -118,7 +114,6 @@ fieldset {
 
 #auteurs button[type="submit"]{
 	cursor:pointer ;
-	width:20%;
   margin:5px;
 	border:none;
 	background:#0CF;

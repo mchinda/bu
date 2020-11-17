@@ -16,4 +16,10 @@ export class LivreService extends BaseService {
   deleteLivre(livre:any){
    return this._http.post(`${environment.BASE_URL}/${this.endpoint}/delete`,livre);
  }
+
+
+  allLivres(){
+    return this._http.get(`${environment.BASE_URL}/${this.endpoint}/get-livres`);
+  }
+
 }

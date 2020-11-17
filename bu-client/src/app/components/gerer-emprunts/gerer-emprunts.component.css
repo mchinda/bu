@@ -8,6 +8,21 @@ table {
    outline-color: none;
 }
 
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+#input-reseash {
+  width:50%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin-top:5%;
+  margin-left:30px;
+	padding:10px;
+  outline:none;
+}
+
 /* tr.mat-footer-row, tr.mat-row {
     height: 5px;
 } */

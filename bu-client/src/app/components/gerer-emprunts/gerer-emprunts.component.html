@@ -1,12 +1,8 @@
 
-<form id="form-register" action="" method="post">
-     <fieldset id="fieldset-search">
-       <input type="text" name="codeEmprunt" [(ngModel)]="model_reseach.codeEmprunt" placeholder="Code livre" />
-       <input type="text" name="codeBu" [(ngModel)]="model_reseach.codeBu" placeholder="Code bibliotheque" />
-       <input type="text" name="codeBu" [(ngModel)]="model_reseach.codeEmprunt" placeholder="Code adherent" />
-       <button id="add_recherche" name="add_recherche" type="button" (click)="rechercher()" data-placement="top" title="Rechercher" >Rechercher</button>
-     </fieldset>
-</form>
+<mat-form-field>
+  <mat-label>Filter data : </mat-label>
+  <input id="input-reseash" matInput (keyup)="applyFilter($event)" placeholder="Ex. nom">
+</mat-form-field>
 
 <div class="row">
 <div class="col-4">
@@ -34,10 +30,10 @@
           </select>
         </fieldset>
         <fieldset>
-          <input id="date_emprunt" [(ngModel)]="model_emprunts.date_emprunt" name="date_emprunt"  placeholder="jj/dd/yyyy" title="Date emprunt" type="date" tabindex="4" required>
+          <input id="date_emprunt" [(ngModel)]="model_emprunts.date_emprunt" name="date_emprunt"  placeholder="jj/dd/yyyy" title="Date emprunt" type="datetime-local" tabindex="4" required>
         </fieldset>
         <fieldset>
-          <input id="date_retour" [(ngModel)]="model_emprunts.date_retour" name="date_retour"  placeholder="jj/dd/yyyy" title="Date retour" type="date" tabindex="5" required>
+          <input id="date_retour" [(ngModel)]="model_emprunts.date_retour" name="date_retour"  placeholder="jj/dd/yyyy" title="Date retour" type="datetime-local" tabindex="5" required>
         </fieldset>
 
         <fieldset>
@@ -48,7 +44,8 @@
     </form>
 </div>
 </div>
-<div class="col-8 mat-elevation-z8">
+
+<div class="mat-elevation-z8 col-8">
     <h1><strong>Liste des emprunts</strong></h1>
     <table mat-table [dataSource]="dataSourceEmprunts">
 

@@ -5,6 +5,8 @@ import {EmprunteurService} from './../../services/emprunteur.service';
 import {EmpruntService} from './../../services/emprunt.service';
 import {BibliothequeService} from './../../services/bibliotheque.service';
 import {LivreService} from './../../services/livre.service';
+import * as moment from 'moment';
+import {MatTableModule,MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-gerer-emprunts',
@@ -15,9 +17,9 @@ import {LivreService} from './../../services/livre.service';
 
 export class GererEmpruntsComponent implements OnInit {
   public displyedEmpruntColumns:string [] = ['id','date_emprunt','date_retour','bibliotheque','livre','adherent','edit','delete'];
-  public pageSizeOptions = [5,10,50];
+  public pageSizeOptions = [3,5,10,50];
   public length = 10;
-  public pageSize =5;
+  public pageSize = 3;
   public pageIndex = 0;
   public dataSourceEmprunts:any;
   public model_reseach:any = {codeLivre:"",codeBu:"",codeEmprunt:""};
@@ -41,21 +43,36 @@ public emprunteurs:any;
 
    }
 
-   findAll(){
+   ngOnInit() {
+     this.refresh();
+   }
+
+ applyFilter(event: Event) {
+   console.log(event);
+     const filterValue = (event.target as HTMLInputElement).value;
+     this.emprunteurs.filter = filterValue.trim().toLowerCase();
+   }
+
+  refresh(){
+     this.findAll();
+     this.findAllLivres();
+     this.findAllBu();
+     this.findAllEmprunteur();
+   }
+
+   findAll() {
      this.empruntService.all().subscribe((result:any) => {
        this.dataSourceEmprunts = result;
        console.log(result);
+     },(err:any) =>{
+       console.log(err);
      });
    }
 
-  ngOnInit(): void {
-
-    this.refresh();
-  }
-
-  findAllBu(){
+  findAllBu() {
     this.buService.all().subscribe((result:any) => {
       this.bus = result;
+      console.log(result);
     },(err:any) =>{
       console.log(err);
     });
@@ -64,12 +81,16 @@ public emprunteurs:any;
    findAllLivres(){
      this.livresService.all().subscribe((result:any) => {
        this.livres = result;
+     },(err:any) => {
+       console.log(err);
      });
    }
 
    findAllEmprunteur(){
      this.emprunteurService.all().subscribe((result:any) => {
        this.emprunteurs = result;
+     },(err:any) =>{
+       console.log(err);
      });
    }
 
@@ -86,18 +107,21 @@ public emprunteurs:any;
   }
 
   addEmprunt(){
+    console.log(this.model_emprunts);
+    let date_emprunt = moment(this.model_emprunts.date_emprunt).format("DD/MM/YYYY HH:mm");
+
+    // let date_emprunt = new Date(this.model_emprunts.date_emprunt).toISOString().split('.')[0];
+    let date_retour = new Date(this.model_emprunts.date_retour).toISOString().split('.')[0];
+    console.log(date_emprunt,date_retour);
+    this.model_emprunts.date_emprunt = date_emprunt;
+    this.model_emprunts.date_retour = date_retour;
+    console.log(this.model_emprunts);
     this.empruntService.add(this.model_emprunts).subscribe((result:any) => {
       this.dataSourceEmprunts.push(result);
       this.ref.detectChanges();
-
+    },(err:any) =>{
+      console.log(err);
     });
-  }
-
-  refresh(){
-    this.findAllLivres();
-    this.findAllBu();
-    this.findAllEmprunteur();
-    this.findAll();
   }
 
   init(event:any){

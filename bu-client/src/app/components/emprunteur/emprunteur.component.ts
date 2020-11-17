@@ -16,7 +16,7 @@ public model_adherent:any = {
   prenom:"",
   date_naissance: new Date(),
   profession:"",
-  sexe:"",
+  sexe:-1,
   adresse:"",
   telephone:"",
   email:"",
@@ -26,6 +26,7 @@ public model_adherent:any = {
   @Optional() @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<EmprunteurComponent>) {
     console.log(data);
     if(data){
+      console.log(data);
       this.loadData(data);
     }
   }
@@ -40,15 +41,36 @@ public model_adherent:any = {
   }
 
   addAdherent(){
-    console.log(this.model_adherent);
-    this.emprunteurService.add(this.model_adherent).subscribe((result:any) => {
-      console.log(result);
+    if(this.data && this.data.edit != null && this.data.edit == 'edit'){
+        this.updateaAdherent();
+    }else {
+      console.log(this.model_adherent);
+      this.emprunteurService.add(this.model_adherent).subscribe((result:any) => {
+        console.log(result);
+      });
+    }
+    this.model_adherent = {sexe:-1};
+  }
+
+  updateaAdherent(){
+    console.log(this.data);
+    this.emprunteurService.update(this.data.adherent.id,this.data.adherent).subscribe((res:any)=>{
+      console.log(res);
+      this.dialogRef.close(res);
+    },(err:any) => {
+      console.log(err);
     });
-    this.model_adherent = {};
   }
 
   onNoClick(event:any){
-    this.model_adherent = {};
+    console.log(event);
+    if(this.data != null && this.data.edit == 'edit') {
+      console.log(this.data,this.model_adherent);
+      this.dialogRef.close(this.model_adherent);
+    } else if(this.data == null || this.data.edit != 'edit') {
+      console.log(this.data,this.model_adherent);
+      this.model_adherent = {sexe:-1};
+    }
   }
 
 }

@@ -34,6 +34,31 @@ td.mat-footer-cell:last-of-type {
     padding-right: 0px;
 }
 
+#input-reseash {
+  width:50%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin-top:5%;
+  margin-left:30px;
+	padding:10px;
+  outline:none;
+}
+
+
+#add_adherent
+{
+ cursor:pointer ;
+ width:8%;
+ border:none;
+ background:#0CF;
+ color:#FFF;
+ padding:10px;
+ font-size:15px;
+ text-align: center;
+ outline:none;
+ margin-left: 2%;
+}
+
 #matElevation {
   margin-top:1%;
   margin-left: 3%;

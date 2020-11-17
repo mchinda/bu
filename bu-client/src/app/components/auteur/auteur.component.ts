@@ -59,14 +59,14 @@ public model_auteur :any = {
   }
 
   getAllAuteur(){
-    this.auteurService.all().subscribe((result:any) =>{
+    this.auteurService.all().subscribe((result:any) => {
       this.auteurs = result;
     });
   }
 
   addAuteur(add:any){
     this.action.add = add;
-    this.model_auteur.date_naissance = moment(this.model_auteur.date_naissance).format("DD/MM/YYYY");
+    this.model_auteur.date_naissance = moment(this.model_auteur.date_naissance).format("DD/MM/YYYY HH:mm");
     if(this.action.edit == '' && this.action.add == 'add'){
       this.auteurService.add(this.model_auteur).subscribe((result:any) =>{
         this.auteurs.push(result);
@@ -80,28 +80,25 @@ public model_auteur :any = {
       this.auteurService.update(this.model_auteur.id,this.model_auteur).subscribe((result:any) =>{
         this.auteurs.push(result);
         this.getAllAuteur();
-          this.model_auteur = {};
+        this.model_auteur = {};
       },(err_update)=>{
         console.log(err_update);
       });
     }
+    this.annuler();
   }
 
-  onNoClick(){
-    // this.dialogRef.close(this.auteurs);
+  annuler(){
+    this.dialogRef.close(this.auteurs);
     this.model_auteur = {};
   }
 
   edite(auteur:any,edit:any){
     this.action.edit = edit;
     this.action.add = "";
-    this.model_auteur.id = auteur.id;
-    this.model_auteur.nom = auteur.nom;
-    this.model_auteur.prenom = auteur.prenom;
-    this.model_auteur.date_naissance = moment(auteur.date_naissance).format("DD/MM/YYYY");
-    this.model_auteur.email = auteur.email;
-    this.model_auteur.nationalite = auteur.nationalite;
-    this.model_auteur.site = auteur.site;
+    this.model_auteur = auteur;
+    this.model_auteur.date_naissance = new Date(auteur.date_naissance).toISOString().split('.')[0];
+
   }
 
 /**
@@ -110,7 +107,6 @@ public model_auteur :any = {
 **/
   deleteAutor(auteur:any){
     this.auteurService.deleteAutor(auteur).subscribe((res:any) => {
-      console.log(res);
       this.getAllAuteur();
     });
   }

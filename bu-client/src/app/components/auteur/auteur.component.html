@@ -10,7 +10,9 @@
     </fieldset>
 
     <fieldset>
-      <input name="date_naissance" [(ngModel)]="model_auteur.date_naissance" placeholder="date naissance auteur" type="date" tabindex="3" title="Date de naissance" required>
+      <input name="date_naissance" [(ngModel)]="model_auteur.date_naissance" type="datetime-local" tabindex="3" title="Date de naissance" placeholder="DD/MM/YYYY HH:mm" required>
+      <!-- <input type="datetime-local" name="date_naissance" [(ngModel)]="model_adherent.date_naissance" placeholder="DD/MM/YYYY" title="date de naissance" tabindex="4" required> -->
+
     </fieldset>
     <fieldset>
       <input name="email" [(ngModel)]="model_auteur.email" placeholder="Email auteur" type="email" tabindex="4" required>
@@ -24,8 +26,10 @@
     </fieldset>
 
     <fieldset>
-      <button name="submit" type="submit" id="contact-submit" (click)="addAuteur('add')" data-submit="...Sending">Valider</button>
-      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick()">Fermer</button>
+      <button name="submit" class="btn btn-primary" type="submit" id="contact-submit" (click)="addAuteur('add')" data-submit="...Sending">Valider</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="annuler()">Annuler</button>
+      <!-- <button type="button" class="btn btn-warning" data-dismiss="modal" (click)="fermer()">Fermer</button> -->
+
     </fieldset>
   </form>
   </div>
@@ -51,7 +55,7 @@
 
       <ng-container matColumnDef="date_naissance">
         <th mat-header-cell *matHeaderCellDef>date_naissance</th>
-        <td mat-cell *matCellDef="let auteur">{{auteur.date_naissance | date : 'dd/MM/yyyy'}}</td>
+        <td mat-cell *matCellDef="let auteur">{{auteur.date_naissance | date : 'dd/MM/yyyy HH:mm'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="email">

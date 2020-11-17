@@ -29,7 +29,7 @@ export class LivresComponent implements OnInit {
     nbr_examplaire:"",
     date_achat:"",
     nbr_page:"",
-    langue:"",
+    langue_livre:"",
     titre:"",
     image:""
   };
@@ -40,11 +40,20 @@ export class LivresComponent implements OnInit {
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<LivresComponent>,public ref: ChangeDetectorRef) {
       if(data){
-        console.log(data);
         this.editLivre(data);
       }
   }
 
+  editLivre(data:any){
+    this.model_livres = data.livre;
+    this.model_livres.domaine = (data.livre && data.livre.domaine) ? data.livre.domaine.id : 0;
+    this.model_livres.bibliotheque = (data.livre && data.livre.bibliotheque) ? data.livre.bibliotheque.id : 0;
+    this.model_livres.auteur = (data.livre && data.livre.auteur ) ? data.livre.auteur.id : 0;
+    this.model_livres.nbr_page = data.livre.nbr_page;
+    this.model_livres.nbr_examplaire = data.livre.nbr_examplaire;
+    this.model_livres.date_achat = new Date(data.livre.date_achat).toISOString().split('.')[0];
+    this.model_livres.date_parution = new Date(data.livre.date_parution).toISOString().split('.')[0];
+    }
 
   ngOnInit() {
     this.refresh();
@@ -57,7 +66,7 @@ export class LivresComponent implements OnInit {
  findAllBu(){
    this.buService.all().subscribe((result:any) => {
      this.bus = result;
-   },(err:any) =>{
+   },(err:any) => {
      console.log(err);
    });
  }
@@ -65,12 +74,16 @@ export class LivresComponent implements OnInit {
   findAllDomaine(){
     this.domaineService.all().subscribe((result:any) => {
       this.domaines = result;
+    },(err:any) => {
+      console.log(err);
     });
   }
 
   findAllAteur(){
     this.auteurService.all().subscribe((result:any) => {
       this.auteurs = result;
+    },(err:any) => {
+      console.log(err);
     });
   }
 
@@ -88,11 +101,9 @@ export class LivresComponent implements OnInit {
          this.findAllAteur();
        }
    });
-
   }
 
   addBU(){
-    console.log('bu');
     const dialogRef = this.dialog.open(BibliothequeComponent,{
     width : '25%',
     data : {
@@ -128,36 +139,31 @@ export class LivresComponent implements OnInit {
   }
 
   addLivre(){
-    console.log(this.model_livres);
-    this.livresService.add(this.model_livres).subscribe((result:any) => {
-      console.log(result);
+    if(this.data && this.data.edit != null){
+      this.updateLivre();
+    } else {
+      this.livresService.add(this.model_livres).subscribe((result:any) => {
+        this.model_livres = {
+          bibliotheque:-1,domaine:-1,auteur:-1
+        };
+      });
+    }
+  }
+
+  annuler(){
+    if(this.data != null && this.data.edit == 'edit'){
+      this.dialogRef.close(this.model_livres);
+    }else if(this.data == null || this.data.edit != 'edit'){
+      this.model_livres = {
+        bibliotheque:-1,domaine:-1,auteur:-1
+      };
+    }
+  }
+
+updateLivre(){
+    this.livresService.update(this.data.livre.id,this.data.livre).subscribe((res:any)=>{
+      this.dialogRef.close(res);
     });
   }
 
-onNoClick(){
-  this.model_livres = {};
-  //this.dialogRef.close();
-}
-
-editLivre(livre:any){
-  console.log(livre);
-  this.model_livres.domaine = livre.domaine;
-  this.model_livres.date_parution = livre.date_parution;
-  this.model_livres.isbn = livre.isbn;
-  this.model_livres.nbr_examplaire = livre.nbr_examplaire;
-  this.model_livres.auteur = livre.auteur;
-  this.model_livres.date_achat = livre.date_achat;
-  this.model_livres.nbr_page = livre.nbr_page;
-  this.model_livres.langue = livre.langue_livre;
-  this.model_livres.titre = livre.titre;
-  this.model_livres.image = livre.image;
-
-  }
-
-  deleteLivre(livre:any){
-    // console.log(livre);
-    // this.livresService.delete(livre.id).subscribe((result:any) => {
-    //   console.log(result);
-    // });
-  }
 }

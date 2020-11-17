@@ -1,22 +1,16 @@
 <div class="container">
-  <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
 <form id="livres" action="" method="post">
   <h3>Gestion des Livres</h3>
   <h4>Ajout d'un livre!</h4>
   <fieldset>
-      <select [(ngModel)]="model_livres.bibliotheque" type="select" name="bibliotheque"  data-placement="top" title="Ajout d'une bibliotheque">
+      <select id="id-bibliotheque" [(ngModel)]="model_livres.bibliotheque" type="select" name="bibliotheque"  data-placement="top" title="Ajout d'une bibliotheque">
         <option value="-1">Choisissez votre bibliotheque</option>
         <option *ngFor="let bu of bus" value="{{bu.id}}">{{bu.nom_bu}}</option>
       </select>
       <button id="add_domaine" type="button" (click)="addBU()" data-placement="top" title="Ajout d'une bibliotheque" >add</button>
     </fieldset>
     <fieldset>
-    <select [(ngModel)]="model_livres.domaine" type="select" name="domaine" data-placement="top" title="Ajout d'une domaine">
+    <select id="id-domaine" [(ngModel)]="model_livres.domaine" type="select" name="domaine" data-placement="top" title="Ajout d'une domaine">
       <option value="-1">Choisissez le domaine</option>
       <option *ngFor="let domaine of domaines" value="{{domaine.id}}">{{domaine.libelle}}</option>
     </select>
@@ -24,12 +18,13 @@
     <button id="add_domaine" name="add_domaine" type="button" (click)="addDomaine()" data-placement="top" title="Ajout d'un domaine" >add</button>
   </fieldset>
   <fieldset>
-    <select type="select" [(ngModel)]="model_livres.auteur" name="auteur" data-placement="top" title="Ajout d'un auteur">
+    <select id="id-auteur" type="select" [(ngModel)]="model_livres.auteur" name="auteur" data-placement="top" title="Ajout d'un auteur">
       <option value="-1">Choisissez un auteur</option>
       <option *ngFor="let auteur of auteurs" value="{{auteur.id}}">{{auteur.nom}}</option>
     </select>
     <button id="add_domaine" name="add_auteur" type="button" (click)="addAuteur()" data-placement="top" title="Ajout d'un auteur" >add</button>
   </fieldset>
+
   <fieldset>
     <input name="titre" [(ngModel)]="model_livres.titre" placeholder="titre" type="text" required>
   </fieldset>
@@ -41,13 +36,18 @@
   <fieldset>
     <input name="nbr_examplaire" [(ngModel)]="model_livres.nbr_examplaire" placeholder="nbre examplaire" type="text" tabindex="3" required>
   </fieldset>
+
+  <fieldset>
+    <input name="nbr_page" [(ngModel)]="model_livres.nbr_page" placeholder="nbre de page" type="text" tabindex="4" required>
+  </fieldset>
+
   <fieldset>
     <input id="date_achat" name="date_achat" [(ngModel)]="model_livres.date_achat" placeholder="jj/dd/yyyy" title="Date d'achat" type="datetime-local" required>
     <input id="date_parution" name="date_parution" [(ngModel)]="model_livres.date_parution" placeholder="jj/dd/yyyy" title="Date parution" type="datetime-local" required>
   </fieldset>
 
   <fieldset>
-    <input name="langue" [(ngModel)]="model_livres.langue" placeholder="langue" type="text" required>
+    <input name="langue" [(ngModel)]="model_livres.langue_livre" placeholder="langue" type="text" required>
   </fieldset>
 
   <fieldset>
@@ -55,7 +55,7 @@
   </fieldset>
   <fieldset>
     <button name="submit" type="submit" id="btn-valider" data-submit="...Sending" (click)="addLivre()">Valider</button>
-    <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick()">Annuler</button>
+    <button id="btn-annuler" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="annuler()">Annuler</button>
 
   </fieldset>
 </form>

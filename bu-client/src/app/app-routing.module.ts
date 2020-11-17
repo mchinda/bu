@@ -13,8 +13,8 @@ import {LivresComponent} from './components/livres/livres.component';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent,children:[
-    {path: '', component: GererLivreComponent},
-    {path:'gerer-emprunts',component: GererEmpruntsComponent},
+    {path:'',component: GererEmpruntsComponent},
+    {path: 'gestion-livre', component: GererLivreComponent},
     {path: 'livre', component: LivresComponent},
     {path:'gerer-adherent',component: GererAdherentComponent},
     {path: 'auteur', component: AuteurComponent},

@@ -1,12 +1,10 @@
-<form id="form-register">
-     <fieldset>
-       <input type="text" id="id-titre" placeholder="CIN" />
-       <input type="text" id="id-isbn" placeholder="Nom" />
-       <input type="text" id="id-auteur" placeholder="Prenom" />
-       <button id="add_recherche" name="add_recherche" type="button" (click)="rechercher()" data-placement="top" title="Rechercher" >Rechercher</button>
-       <button id="add_adherent" name="addAdherent" type="button" [routerLink]="['./../adherent']" data-placement="top" title="Ajout des adhérent" >Ajout</button>
-     </fieldset>
-   </form>
+<mat-form-field>
+  <mat-label>Filter data : </mat-label>
+  <input id="input-reseash" matInput (keyup)="applyFilter($event)" placeholder="Ex. nom">
+</mat-form-field>
+
+<button id="add_adherent" name="addAdherent" type="button" [routerLink]="['./../adherent']" data-placement="top" title="Ajout des adhérent" >Ajout</button>
+
 <div class="mat-elevation-z8 col-11" id="matElevation">
     <h1><strong>Liste des adhérents</strong></h1>
     <table mat-table [dataSource]="adherents" *ngIf="adherents" >

@@ -1,13 +1,10 @@
-<form id="form-register">
-     <fieldset>
-       <input type="text" id="id-titre" placeholder="Enter le titre" />
-       <input type="text" id="id-isbn" placeholder="Enter l'ESBN" />
-       <input type="text" id="id-auteur" placeholder="Enter l'auteur" />
 
-       <button id="add_recherche" name="add_recherche" type="button" (click)="recherche()" data-placement="top" title="Rechercher" >Rechercher</button>
-       <button id="add_livre" name="addLivre" type="button" [routerLink]="['./livre']" data-placement="top" title="Ajout livre" >Ajout</button>
-     </fieldset>
-   </form>
+   <mat-form-field>
+    <mat-label>Filter data : </mat-label>
+    <input id="input-reseash" matInput (keyup)="applyFilter($event)" placeholder="Ex. isbn">
+  </mat-form-field>
+
+       <button id="add_livre" name="addLivre" type="button" [routerLink]="['./../livre']" data-placement="top" title="Ajout livre" >Ajout</button>
 
 <div class="mat-elevation-z8 col-11" id="matElevation">
     <h1><strong>Liste des livres</strong></h1>
@@ -53,19 +50,19 @@
         <td mat-cell *matCellDef="let livre">{{livre.date_parution | date : 'dd/MM/yyyy'}}</td>
       </ng-container>
 
+      <ng-container matColumnDef="bibliotheque">
+        <th mat-header-cell *matHeaderCellDef>bibliotheque</th>
+        <td mat-cell *matCellDef="let livre">{{livre.bibliotheque !=null ? livre.bibliotheque.nom_bu : 'Undefined'}}</td>
+      </ng-container>
+
       <ng-container matColumnDef="domaine">
         <th mat-header-cell *matHeaderCellDef>domaine</th>
-        <td mat-cell *matCellDef="let livre">{{livre.domaine}}</td>
+        <td mat-cell *matCellDef="let livre">{{livre.domaine != null ? livre.domaine.libelle : 'Undefined'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="auteur">
         <th mat-header-cell *matHeaderCellDef>auteur</th>
-        <td mat-cell *matCellDef="let livre">{{livre.auteur}}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="emprunter">
-        <th mat-header-cell *matHeaderCellDef>emprunter</th>
-        <td mat-cell *matCellDef="let livre">{{livre.emprunter}}</td>
+        <td mat-cell *matCellDef="let livre">{{livre.auteur != null ? livre.auteur.nom : 'Undefined'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="image_livre">

@@ -10,6 +10,16 @@ table
    outline-color: none;
 }
 
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #343a40;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 5;
+  }
+
 tr.mat-footer-row, tr.mat-row
 {
     height: 30px;
@@ -70,10 +80,8 @@ body {
 	padding:2%;
 }
 
-#livres input[type="text"],
-#livres input[type="file"]
-{
-	width:40%;
+#id-auteur,#id-domaine ,#id-bibliotheque{
+  width:35%;
 	border:1px solid #CCC;
 	background:#FFF;
 	margin:0 0 5px;
@@ -81,9 +89,10 @@ body {
   outline:none;
 }
 
-#livres select[type="select"]
+#livres input[type="text"],
+#livres input[type="file"]
 {
-	width:35%;
+	width:40%;
 	border:1px solid #CCC;
 	background:#FFF;
 	margin:0 0 5px;
@@ -119,7 +128,7 @@ h3
 	display: block;
 	font-size: 30px;
 	font-weight: 400;
-  text-align:center;
+  margin-left:40%;
 }
 
 bt-dele-livre
@@ -136,6 +145,7 @@ h4
 	font-size: 20px;
 	font-weight: 400;
   text-align:center;
+  /* margin-left:40%; */
 }
 
 #livres h4
@@ -185,7 +195,7 @@ fieldset
   	cursor:pointer ;
   	width:10%;
   	border:none;
-  	padding:10px;
+  	/* padding:10px; */
   	font-size:15px;
     text-align: center;
     outline:none;
