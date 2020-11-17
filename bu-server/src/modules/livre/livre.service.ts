@@ -19,4 +19,9 @@ export class LivreService extends BaseService {
       .execute();
   }
 
+  async allLivres(){
+      return await this.livreRepository.find({
+        relations:["auteur", "bibliotheque","emprunt","domaine"]
+      });
+    }
 }

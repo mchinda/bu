@@ -8,10 +8,10 @@ import {LivreEntity} from './../livre/livre.entity';
 export class EmpruntEntity extends BaseEntity {
 
   @Column({type: "timestamp", comment:'Date de de debut'})
-  date_debut :Date;
+  date_emprunt :Date;
 
   @Column({type: "timestamp", comment:'Date de fin'})
-  date_fin :Date;
+  date_retour :Date;
 
   @Column()
   rendu :string;

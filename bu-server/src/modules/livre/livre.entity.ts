@@ -33,15 +33,19 @@ export class LivreEntity extends BaseEntity{
   date_parution :Date;
 
   @ManyToOne(type => AuteurEntity, auteur => auteur.livre)
+  @JoinColumn()
   auteur:AuteurEntity;
 
   @ManyToOne(type => BibliothequeEntity, bibliotheque => bibliotheque.livre)
+  @JoinColumn()
   bibliotheque:BibliothequeEntity;
 
   @ManyToOne(type => EmpruntEntity, emprunt => emprunt.livre)
+  @JoinColumn()
   emprunt:EmpruntEntity;
 
   @ManyToOne(type => DomaineEntity, domaine => domaine.livre)
+  @JoinColumn()
   domaine:DomaineEntity;
 
 }

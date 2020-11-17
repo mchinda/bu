@@ -8,7 +8,10 @@ export class BibliothequeEntity extends BaseEntity {
 
   @Column()
   nom_bu: string;
-  
+
   @OneToMany(type => LivreEntity, livre => livre.bibliotheque)
   livre : LivreEntity[];
+
+  // @OneToMany(type => PassageEntity, passages => passages.poste)
+  // passages:PassageEntity[];
 }

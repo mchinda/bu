@@ -29,5 +29,9 @@ export class LivreController extends BaseController {
       return await this.livreService.deleteLivre(body);
      }
 
+     @Get('get-livres')
+     async allLivre(){
+       return await this.livreService.allLivres();
+      }
 
 }
