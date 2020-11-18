@@ -62,8 +62,7 @@ public emprunteurs:any;
 
    findAll() {
      this.empruntService.all().subscribe((result:any) => {
-       this.dataSourceEmprunts = result;
-       console.log(result);
+       this.dataSourceEmprunts = new MatTableDataSource(result);
      },(err:any) =>{
        console.log(err);
      });

@@ -70,7 +70,6 @@ findAll() {
   });
 }
 
-
   onPageChange(event:any){
 
   }
