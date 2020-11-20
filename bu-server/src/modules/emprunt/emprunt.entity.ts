@@ -16,9 +16,11 @@ export class EmpruntEntity extends BaseEntity {
   @Column()
   rendu :string;
 
-  @OneToMany(type => LivreEntity, livre => livre.emprunt)
+  @ManyToOne(type => LivreEntity, livre => livre.emprunt)
+  @JoinColumn()
   livre:LivreEntity;
 
   @ManyToOne(type => EmprunteurEntity, emprunteur => emprunteur.emprunt)
+  @JoinColumn()
   emprunteur :EmprunteurEntity;
 }

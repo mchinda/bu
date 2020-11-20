@@ -36,6 +36,6 @@ export class EmprunteurEntity extends BaseEntity {
   direction: string;
 
   @OneToMany(type => EmpruntEntity, emprunt => emprunt.emprunteur)
-  emprunt:EmpruntEntity;
+  emprunt:EmpruntEntity[];
 
 }

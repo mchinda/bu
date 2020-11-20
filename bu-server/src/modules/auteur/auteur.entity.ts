@@ -12,7 +12,7 @@ export class AuteurEntity extends BaseEntity{
   @Column()
   prenom: string;
 
-  @Column({type: "timestamp", comment:'Date de naissance'})
+  @Column({type: "date", comment:'Date de naissance'})
   date_naissance :Date;
 
   @Column()

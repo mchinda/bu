@@ -31,6 +31,7 @@ export class BaseService{
   }
 
   async update(_id:number ,entity:any): Promise<UpdateResult> {
+    console.log(entity);
     delete entity.id;
     return await this.repository.update(_id,entity);
   }

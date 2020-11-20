@@ -65,6 +65,7 @@ public model_auteur :any = {
   }
 
   addAuteur(add:any){
+    console.log(this.model_auteur,add);
     this.action.add = add;
     this.model_auteur.date_naissance = moment(this.model_auteur.date_naissance).format("DD/MM/YYYY HH:mm");
     if(this.action.edit == '' && this.action.add == 'add'){

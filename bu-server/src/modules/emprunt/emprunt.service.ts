@@ -10,4 +10,21 @@ export class EmpruntService extends BaseService {
   constructor(@InjectRepository(EmpruntEntity) private readonly empruntRepository:Repository<EmpruntEntity>){
     super(empruntRepository);
   }
+
+  async allEmprunt(){
+      return await this.empruntRepository.find({
+        relations:["livre", "livre.bibliotheque","emprunteur",]
+      });
+    }
+
+   async deleteEmprunt(body:any){
+     console.log(body);
+     await this.empruntRepository
+       .createQueryBuilder()
+       .delete()
+       .from(EmpruntEntity)
+       .where("id = :id", { id: body.id})
+       .execute();
+   }
+
 }

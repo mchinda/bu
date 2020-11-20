@@ -27,7 +27,8 @@ export class GererLivreComponent implements OnInit {
     this.findAllLivres();
   }
 
-editLivre(livre){
+editLivre(livre:any){
+  console.log(livre);
     const dialogRef = this.dialog.open(LivresComponent,{
     width : '50%',
     data : {
@@ -61,7 +62,9 @@ applyFilter(event: Event) {
 
 findAllLivres(){
     this.livresService.allLivres().subscribe((result:any) => {
+      console.log(result);
       this.livres = new MatTableDataSource(result);
+      console.log(this.livres);
     },(err:any) => {
       console.log(err);
     });

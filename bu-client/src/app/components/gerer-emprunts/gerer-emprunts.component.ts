@@ -16,14 +16,13 @@ import {MatTableModule,MatTableDataSource} from '@angular/material/table';
 })
 
 export class GererEmpruntsComponent implements OnInit {
-  public displyedEmpruntColumns:string [] = ['id','date_emprunt','date_retour','bibliotheque','livre','adherent','edit','delete'];
+  public displyedEmpruntColumns:string [] = ['id','date_emprunt','date_retour','bibliotheque','livre','adherent','rendu','edit','delete'];
   public pageSizeOptions = [3,5,10,50];
   public length = 10;
   public pageSize = 3;
   public pageIndex = 0;
-  public dataSourceEmprunts:any;
   public model_reseach:any = {codeLivre:"",codeBu:"",codeEmprunt:""};
-
+  public dataSourceEmprunts:any;
   public model_emprunts:any = {
          bibliotheque:-1,
          codeLivre:-1,
@@ -40,17 +39,15 @@ public emprunteurs:any;
               private empruntService :EmpruntService,
               private buService: BibliothequeService,
               private livresService:LivreService,private ref: ChangeDetectorRef) {
-
    }
 
-   ngOnInit() {
-     this.refresh();
-   }
+ ngOnInit() {
+   this.refresh();
+  }
 
  applyFilter(event: Event) {
-   console.log(event);
      const filterValue = (event.target as HTMLInputElement).value;
-     this.emprunteurs.filter = filterValue.trim().toLowerCase();
+     this.dataSourceEmprunts.filter = filterValue.trim().toLowerCase();
    }
 
   refresh(){
@@ -61,8 +58,8 @@ public emprunteurs:any;
    }
 
    findAll() {
-     this.empruntService.all().subscribe((result:any) => {
-       this.dataSourceEmprunts = new MatTableDataSource(result);
+     this.empruntService.allEmprunts().subscribe((result:any) => {
+       this.dataSourceEmprunts = result;
      },(err:any) =>{
        console.log(err);
      });
@@ -71,7 +68,6 @@ public emprunteurs:any;
   findAllBu() {
     this.buService.all().subscribe((result:any) => {
       this.bus = result;
-      console.log(result);
     },(err:any) =>{
       console.log(err);
     });
@@ -98,23 +94,26 @@ public emprunteurs:any;
   }
 
   editerEmprunt(emprunt:any){
-    console.log(emprunt);
+    this.model_emprunts.bibliotheque = emprunt.livre.bibliotheque.id;
+    this.model_emprunts.codeLivre = emprunt.livre.id;
+    this.model_emprunts.codeAderent = emprunt.emprunteur.id;
+    this.model_emprunts.date_emprunt = new Date(emprunt.date_emprunt).toISOString().split('.')[0];
+    this.model_emprunts.date_retour = new Date(emprunt.date_retour).toISOString().split('.')[0];
+    //this.model_emprunts.rendue = emprunt.rendu;
+
   }
 
   deleteEmprunt(emprunt:any){
-    console.log(emprunt);
+    this.empruntService.deleteEmprunt(emprunt).subscribe((res:any) => {
+      this.findAll();
+    });
   }
 
   addEmprunt(){
-    console.log(this.model_emprunts);
     let date_emprunt = moment(this.model_emprunts.date_emprunt).format("DD/MM/YYYY HH:mm");
-
-    // let date_emprunt = new Date(this.model_emprunts.date_emprunt).toISOString().split('.')[0];
     let date_retour = new Date(this.model_emprunts.date_retour).toISOString().split('.')[0];
-    console.log(date_emprunt,date_retour);
     this.model_emprunts.date_emprunt = date_emprunt;
     this.model_emprunts.date_retour = date_retour;
-    console.log(this.model_emprunts);
     this.empruntService.add(this.model_emprunts).subscribe((result:any) => {
       this.dataSourceEmprunts.push(result);
       this.ref.detectChanges();

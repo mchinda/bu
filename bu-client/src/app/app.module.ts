@@ -24,7 +24,6 @@ import { HomeComponent } from './components/home/home.component';
 import { BibliothequeComponent } from './components/bibliotheque/bibliotheque.component';
 import { GererLivreComponent } from './components/gerer-livre/gerer-livre.component';
 import { GererEmpruntsComponent } from './components/gerer-emprunts/gerer-emprunts.component';
-import { EmpruntsComponent } from './components/emprunts/emprunts.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { EmpruntsComponent } from './components/emprunts/emprunts.component';
     BibliothequeComponent,
     GererLivreComponent,
     GererEmpruntsComponent,
-    EmpruntsComponent,
   ],
   entryComponents: [DomaineComponent,BibliothequeComponent,AuteurComponent],
   imports: [

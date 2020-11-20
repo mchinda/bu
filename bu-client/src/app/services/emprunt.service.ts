@@ -13,5 +13,14 @@ export class EmpruntService extends BaseService {
           super(_http,'emprunt');
    }
 
+  allEmprunts(){
+    return this._http.get(`${environment.BASE_URL}/${this.endpoint}/get-emprunt`);
+  }
+
+
+
+  deleteEmprunt(emprunt:any){
+   return this._http.post(`${environment.BASE_URL}/${this.endpoint}/delete`,emprunt);
+ }
 
 }

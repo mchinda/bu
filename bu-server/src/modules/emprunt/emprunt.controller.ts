@@ -22,4 +22,14 @@ export class EmpruntController extends BaseController {
     super(empruntService);
   }
 
+ @Get('get-emprunt')
+ async allEmprunts(){
+   return await this.empruntService.allEmprunt();
+  }
+
+  @Post('delete')
+  async deleteEmprunt(@Body() body:any){
+    return await this.empruntService.deleteEmprunt(body);
+   }
+
 }

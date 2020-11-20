@@ -21,7 +21,7 @@ export class LivreService extends BaseService {
 
   async allLivres(){
       return await this.livreRepository.find({
-        relations:["auteur", "bibliotheque","emprunt","domaine"]
+        relations:["auteur", "bibliotheque","domaine"]
       });
     }
 }

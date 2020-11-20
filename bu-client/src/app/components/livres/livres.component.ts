@@ -161,6 +161,7 @@ export class LivresComponent implements OnInit {
   }
 
 updateLivre(){
+  console.log(this.data.livre.id,this.data.livre);
     this.livresService.update(this.data.livre.id,this.data.livre).subscribe((res:any)=>{
       this.dialogRef.close(res);
     });

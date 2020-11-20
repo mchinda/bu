@@ -13,6 +13,7 @@ table {
   width: 100%;
 }
 
+
 #input-reseash {
   width:50%;
 	border:1px solid #CCC;
@@ -22,10 +23,6 @@ table {
 	padding:10px;
   outline:none;
 }
-
-/* tr.mat-footer-row, tr.mat-row {
-    height: 5px;
-} */
 
 .toolbar-icon-disabled {
   pointer-events: none;
@@ -130,7 +127,7 @@ legend.custom-border {
 }
 
 .row {
-  margin:1%;
+  margin-top: 1%;
 }
 
 #date_retour{

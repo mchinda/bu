@@ -9,4 +9,5 @@ export abstract class BaseEntity {
 
   @UpdateDateColumn({type: 'timestamp', nullable: true})
   updated:Date;
+  
 }

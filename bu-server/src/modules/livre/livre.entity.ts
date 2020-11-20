@@ -26,10 +26,10 @@ export class LivreEntity extends BaseEntity{
   @Column()
   image_livre: string;
 
-  @Column({type: "timestamp", comment:'Date de naissance'})
+  @Column({type: "date", comment:'Date d achat'})
   date_achat :Date;
 
-  @Column({type: "timestamp", comment:'Date de naissance'})
+  @Column({type: "date", comment:'Date de parution'})
   date_parution :Date;
 
   @ManyToOne(type => AuteurEntity, auteur => auteur.livre)
@@ -40,12 +40,11 @@ export class LivreEntity extends BaseEntity{
   @JoinColumn()
   bibliotheque:BibliothequeEntity;
 
-  @ManyToOne(type => EmpruntEntity, emprunt => emprunt.livre)
-  @JoinColumn()
-  emprunt:EmpruntEntity;
-
   @ManyToOne(type => DomaineEntity, domaine => domaine.livre)
   @JoinColumn()
   domaine:DomaineEntity;
 
+  @OneToMany(type => EmpruntEntity, emprunt => emprunt.livre)
+  emprunt : EmpruntEntity[];
+  
 }
