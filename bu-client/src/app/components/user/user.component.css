@@ -27,8 +27,9 @@ table {
   color:white;
 }
 
-#matElevation {
+#matElevation
+{
   margin-top:5%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
 }

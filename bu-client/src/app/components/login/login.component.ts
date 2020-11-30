@@ -23,4 +23,8 @@ public password:any;
     this.router.navigate(['/home']);
   }
 
+  inscription(){
+    this.router.navigate(['/inscription']);
+  }
+
 }

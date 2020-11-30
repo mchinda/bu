@@ -9,9 +9,11 @@ import { GererLivreComponent } from './components/gerer-livre/gerer-livre.compon
 import { GererAdherentComponent } from './components/gerer-adherent/gerer-adherent.component';
 import { GererEmpruntsComponent } from './components/gerer-emprunts/gerer-emprunts.component';
 import {LivresComponent} from './components/livres/livres.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
+  {path: 'inscription',component : InscriptionComponent},
   {path: 'home', component: HomeComponent,children:[
     {path:'',component: GererEmpruntsComponent},
     {path: 'gestion-livre', component: GererLivreComponent},
@@ -20,10 +22,7 @@ const routes: Routes = [
     {path: 'auteur', component: AuteurComponent},
     {path: 'user', component: UserComponent},
     {path: 'adherent', component: EmprunteurComponent},
-
   ]}
-
-
 ];
 
 @NgModule({

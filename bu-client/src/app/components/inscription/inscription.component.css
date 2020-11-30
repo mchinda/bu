@@ -1,0 +1,24 @@
+
+.container {
+  margin-top: 3%;
+}
+.btn-primary {
+  margin:1rem;
+}
+.inputGroupContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  #contact_form input[type="text"],
+  #contact_form input[type="email"],
+  #contact_form input[type="tel"],
+  #contact_form input[type="datetime-local"]
+  {
+  	width:100%;
+  	border:1px solid #CCC;
+  	background:#FFF;
+  	margin:0 0 5px;
+  	padding:10px;
+    outline:none;
+}

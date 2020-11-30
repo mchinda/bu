@@ -1,5 +1,5 @@
 <mat-form-field>
-  <mat-label>Filter data : </mat-label>
+  <!-- <mat-label>Filter data : </mat-label> -->
   <input id="input-reseash" matInput (keyup)="applyFilter($event)" placeholder="Ex. nom">
 </mat-form-field>
 
@@ -47,9 +47,7 @@
 
 <div class="mat-elevation-z8 col-8" >
     <h1><strong>Liste des emprunts</strong></h1>
-    <!-- <table mat-table [dataSource]="dataSourceEmprunts"> -->
-      <table mat-table [dataSource]="dataSourceEmprunts" *ngIf="dataSourceEmprunts" >
-
+    <table mat-table [dataSource]="dataSourceEmprunts" >
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>id</th>

@@ -1,0 +1,113 @@
+<div class="container">
+
+<form action=" " method="post">
+<fieldset align="center">
+
+<!-- Nom -->
+<legend class="Legend" >INSCRIPTION ADHERENT</legend>
+  <div class="form-group" style="margin-top:1em">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <input  name="nom" [(ngModel)]="model_inscriotion.nom" placeholder="Nom" class="form-control"  type="text">
+      </div>
+    </div>
+  </div>
+
+<!-- prenom -->
+<div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="prenom" [(ngModel)]="model_inscriotion.prenom" placeholder="Prenom" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Date de naissance -->
+<div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input name="date_naissance" [(ngModel)]="model_inscriotion.date_naissance" placeholder="Date de naissance" class="form-control"  type="datetime-local">
+    </div>
+  </div>
+</div>
+
+<!-- Date de naissance -->
+<div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input name="bu" [(ngModel)]="model_bu.nom_bu" placeholder="Bibliothèque" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- login -->
+<div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input name="login" [(ngModel)]="model_inscriotion.login" placeholder="E-mail" class="form-control"  type="email">
+    </div>
+  </div>
+</div>
+
+<!-- Adresse -->
+<div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        <input name="address" [(ngModel)]="model_inscriotion.adresse" placeholder="Address" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Telephone -->
+<div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        <input name="Telephone" [(ngModel)]="model_inscriotion.telephone" placeholder="Telephone" class="form-control"  type="tel">
+    </div>
+</div>
+</div>
+
+<!-- Password -->
+<div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        <input name="password" [(ngModel)]="model_inscriotion.password" placeholder="Password" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+<!-- Confirme Password -->
+<div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        <input name="confirmPassword" [(ngModel)]="model_inscriotion.confirmPassword" placeholder="confirm password" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+<!-- Success message -->
+<div *ngIf="userIsValidated==false" class="alert alert-success" role="alert" id="success_message">Success<i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+
+    <button type="submit" class="btn btn-primary" (click)="inscription()">Enregistrer <span class="glyphicon glyphicon-send"></span></button>
+    <button type="submit" class="btn btn-secondary" (click)="retour()"><< Retour <span class="glyphicon glyphicon-send"></span></button>
+
+</div>
+</div>
+
+
+</fieldset>
+</form>
+</div>
